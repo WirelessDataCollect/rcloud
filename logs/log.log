@@ -1475,3 +1475,685 @@
 2019.06.13 11:10:10 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
 2019.06.13 11:10:15 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
 2019.06.13 11:10:20 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:10:51 CST INFO  org.springframework.boot.StartupInfoLogger logStarting() @50 - Starting BootApplication on DESKTOP-T8PV6O0 with PID 9800 (F:\Softcodes\Java\rcloud\target\classes started by 宋超超 in F:\Softcodes\Java\rcloud)
+2019.06.13 11:10:51 CST INFO  org.springframework.boot.SpringApplication logStartupProfileInfo() @675 - No active profile set, falling back to default profiles: default
+2019.06.13 11:10:52 CST INFO  org.springframework.scheduling.concurrent.ExecutorConfigurationSupport initialize() @171 - Initializing ExecutorService
+2019.06.13 11:10:52 CST INFO  org.springframework.scheduling.concurrent.ExecutorConfigurationSupport initialize() @171 - Initializing ExecutorService 'asyncExecutor'
+2019.06.13 11:10:52 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019.06.13 11:10:52 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Opened connection [connectionId{localValue:1, serverValue:62}] to localhost:27017
+2019.06.13 11:10:52 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 8]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=3290000}
+2019.06.13 11:10:52 CST INFO  org.springframework.scheduling.concurrent.ExecutorConfigurationSupport initialize() @171 - Initializing ExecutorService 'taskScheduler'
+2019.06.13 11:10:52 CST INFO  org.springframework.boot.StartupInfoLogger logStarted() @59 - Started BootApplication in 1.279 seconds (JVM running for 2.779)
+2019.06.13 11:10:52 CST INFO  cn.sorl.rcloud.biz.threads.RuiliNodeHandlerTask start() @84 - Starting Node-Thread
+2019.06.13 11:10:52 CST INFO  cn.sorl.rcloud.biz.threads.RuiliPcHandlerTask start() @103 - Starting Pc-Thread
+2019.06.13 11:10:52 CST INFO  cn.sorl.rcloud.biz.threads.RuiliNodeHandlerTask run() @80 - Listen port for nodes: 5001
+2019.06.13 11:10:52 CST INFO  cn.sorl.rcloud.biz.threads.RuiliPcHandlerTask run() @95 - Listen port for pcs: 8089
+2019.06.13 11:10:53 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019.06.13 11:10:53 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Opened connection [connectionId{localValue:2, serverValue:63}] to localhost:27017
+2019.06.13 11:10:53 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - No server chosen by com.mongodb.async.client.ClientSessionHelper$1@1c6339ff from cluster description ClusterDescription{type=UNKNOWN, connectionMode=SINGLE, serverDescriptions=[ServerDescription{address=localhost:27017, type=UNKNOWN, state=CONNECTING}]}. Waiting for 30000 ms before timing out
+2019.06.13 11:10:53 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 8]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=917300}
+2019.06.13 11:10:53 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd <init>() @56 - Connected to db.col(udp.2019-06) successfully
+2019.06.13 11:10:53 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019.06.13 11:10:53 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - No server chosen by com.mongodb.async.client.ClientSessionHelper$1@1cb03acd from cluster description ClusterDescription{type=UNKNOWN, connectionMode=SINGLE, serverDescriptions=[ServerDescription{address=localhost:27017, type=UNKNOWN, state=CONNECTING}]}. Waiting for 30000 ms before timing out
+2019.06.13 11:10:53 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd <init>() @56 - Connected to db.col(udp.config) successfully
+2019.06.13 11:10:53 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019.06.13 11:10:53 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd <init>() @56 - Connected to db.col(udp.2019-06) successfully
+2019.06.13 11:10:53 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Opened connection [connectionId{localValue:3, serverValue:64}] to localhost:27017
+2019.06.13 11:10:53 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019.06.13 11:10:53 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 8]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=986500}
+2019.06.13 11:10:53 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd <init>() @56 - Connected to db.col(data.admin) successfully
+2019.06.13 11:10:53 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Opened connection [connectionId{localValue:5, serverValue:65}] to localhost:27017
+2019.06.13 11:10:53 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 8]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=826100}
+2019.06.13 11:10:53 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Opened connection [connectionId{localValue:7, serverValue:68}] to localhost:27017
+2019.06.13 11:10:53 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Opened connection [connectionId{localValue:6, serverValue:67}] to localhost:27017
+2019.06.13 11:10:53 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 8]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=762500}
+2019.06.13 11:10:53 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Opened connection [connectionId{localValue:4, serverValue:66}] to localhost:27017
+2019.06.13 11:10:53 CST INFO  cn.sorl.rcloud.dal.netty.RuiliNodeUdpHandler channelActive() @63 - Device UDP channel [id: 0x72daf7a0, L:/0:0:0:0:0:0:0:0:5001] created
+2019.06.13 11:10:53 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd$1 onResult() @52 - db.col create index by "test_-1"(indexName_-1)
+2019.06.13 11:10:53 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd$1 onResult() @52 - db.col create index by "test_-1"(indexName_-1)
+2019.06.13 11:10:58 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelActive() @552 - PC /192.168.3.8:49233 connected!
+2019.06.13 11:10:58 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelActive() @560 - Channel Num : 1
+2019.06.13 11:10:58 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:11:03 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:11:05 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler ctxCloseFuture() @243 - Got In Close : [id: 0x6f4b8fe3, L:0.0.0.0/0.0.0.0:8089 ! R:/192.168.3.8:49233]
+2019.06.13 11:11:05 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelInactive() @569 - PC /192.168.3.8:49233 disconnected!
+2019.06.13 11:11:05 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelInactive() @570 - Channel Num : 0
+2019.06.13 11:11:05 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelActive() @552 - PC /192.168.3.8:49235 connected!
+2019.06.13 11:11:05 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelActive() @560 - Channel Num : 1
+2019.06.13 11:11:08 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:11:09 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : Disconnect
+2019.06.13 11:11:09 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler ctxCloseFuture() @243 - Got In Close : [id: 0xbf4fd6da, L:0.0.0.0/0.0.0.0:8089 ! R:/192.168.3.8:49235]
+2019.06.13 11:11:09 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler ctxCloseFuture() @243 - Got In Close : [id: 0xbf4fd6da, L:0.0.0.0/0.0.0.0:8089 ! R:/192.168.3.8:49235]
+2019.06.13 11:11:09 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler ctxCloseFuture() @243 - Got In Close : [id: 0xbf4fd6da, L:0.0.0.0/0.0.0.0:8089 ! R:/192.168.3.8:49235]
+2019.06.13 11:11:09 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler ctxCloseFuture() @243 - Got In Close : [id: 0xbf4fd6da, L:0.0.0.0/0.0.0.0:8089 ! R:/192.168.3.8:49235]
+2019.06.13 11:11:09 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelInactive() @569 - PC /192.168.3.8:49235 disconnected!
+2019.06.13 11:11:09 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelInactive() @570 - Channel Num : 0
+2019.06.13 11:11:13 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:11:18 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:11:23 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:11:28 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:11:33 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:11:34 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelActive() @552 - PC /192.168.3.8:49241 connected!
+2019.06.13 11:11:34 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelActive() @560 - Channel Num : 1
+2019.06.13 11:11:34 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : Login+sxxsxx;18f91ded465ac3b88f9a7d2622d3a58a
+2019.06.13 11:11:34 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Opened connection [connectionId{localValue:8, serverValue:69}] to localhost:27017
+2019.06.13 11:11:34 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler$1 apply() @154 - /192.168.3.8:49241's Key Correct!
+2019.06.13 11:11:38 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:11:38 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : Disconnect
+2019.06.13 11:11:38 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler ctxCloseFuture() @243 - Got In Close : [id: 0x96712e41, L:0.0.0.0/0.0.0.0:8089 ! R:/192.168.3.8:49241]
+2019.06.13 11:11:38 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler ctxCloseFuture() @243 - Got In Close : [id: 0x96712e41, L:0.0.0.0/0.0.0.0:8089 ! R:/192.168.3.8:49241]
+2019.06.13 11:11:38 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelInactive() @569 - PC /192.168.3.8:49241 disconnected!
+2019.06.13 11:11:38 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelInactive() @570 - Channel Num : 0
+2019.06.13 11:11:43 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:11:48 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:11:53 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:11:58 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:12:03 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:12:08 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:12:13 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:12:16 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelActive() @552 - PC /192.168.3.8:49264 connected!
+2019.06.13 11:12:16 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelActive() @560 - Channel Num : 1
+2019.06.13 11:12:16 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : Login+sxxsxx;1ec7f002a18f80d5442fbfbb2dccd500
+2019.06.13 11:12:16 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler$1 apply() @154 - /192.168.3.8:49264's Key Correct!
+2019.06.13 11:12:17 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : Login+sxxsxx;6bf1cce845ba9ed95afedebb66a37ea1
+2019.06.13 11:12:18 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:12:23 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:12:28 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:12:28 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : Disconnect
+2019.06.13 11:12:28 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler ctxCloseFuture() @243 - Got In Close : [id: 0x20e838dd, L:0.0.0.0/0.0.0.0:8089 ! R:/192.168.3.8:49264]
+2019.06.13 11:12:28 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler ctxCloseFuture() @243 - Got In Close : [id: 0x20e838dd, L:0.0.0.0/0.0.0.0:8089 ! R:/192.168.3.8:49264]
+2019.06.13 11:12:28 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelInactive() @569 - PC /192.168.3.8:49264 disconnected!
+2019.06.13 11:12:28 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelInactive() @570 - Channel Num : 0
+2019.06.13 11:12:33 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:12:38 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:12:43 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:12:48 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:12:53 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:12:58 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:13:03 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:13:08 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:13:13 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:13:18 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:13:23 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:13:28 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:13:33 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:13:38 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:13:43 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:13:47 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Opened connection [connectionId{localValue:9, serverValue:70}] to localhost:27017
+2019.06.13 11:13:48 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 23
+2019.06.13 11:13:53 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 100
+2019.06.13 11:13:58 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 100
+2019.06.13 11:14:03 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 100
+2019.06.13 11:14:08 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 100
+2019.06.13 11:14:13 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 100
+2019.06.13 11:14:18 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 100
+2019.06.13 11:14:23 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 100
+2019.06.13 11:14:28 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 100
+2019.06.13 11:14:33 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 100
+2019.06.13 11:14:38 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 100
+2019.06.13 11:14:42 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Opened connection [connectionId{localValue:10, serverValue:71}] to localhost:27017
+2019.06.13 11:14:43 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 100
+2019.06.13 11:14:48 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 100
+2019.06.13 11:14:53 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 100
+2019.06.13 11:14:58 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 100
+2019.06.13 11:15:03 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 100
+2019.06.13 11:15:08 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 100
+2019.06.13 11:15:13 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 100
+2019.06.13 11:15:15 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelActive() @552 - PC /192.168.3.8:49337 connected!
+2019.06.13 11:15:15 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelActive() @560 - Channel Num : 1
+2019.06.13 11:15:16 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : Login+songchaochao;00f1212c46147aa5b1ac708c660c2291
+2019.06.13 11:15:16 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler$1 apply() @154 - /192.168.3.8:49337's Key Correct!
+2019.06.13 11:15:16 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocsNames+isodate:2019-06-13,2019-06-14
+2019.06.13 11:15:18 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 45
+2019.06.13 11:15:23 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:15:28 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:15:33 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:15:38 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:15:43 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:15:47 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : Disconnect
+2019.06.13 11:15:47 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler ctxCloseFuture() @243 - Got In Close : [id: 0x09bf2e92, L:0.0.0.0/0.0.0.0:8089 ! R:/192.168.3.8:49337]
+2019.06.13 11:15:47 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler ctxCloseFuture() @243 - Got In Close : [id: 0x09bf2e92, L:0.0.0.0/0.0.0.0:8089 ! R:/192.168.3.8:49337]
+2019.06.13 11:15:47 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelInactive() @569 - PC /192.168.3.8:49337 disconnected!
+2019.06.13 11:15:47 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelInactive() @570 - Channel Num : 0
+2019.06.13 11:15:48 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:15:53 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:15:58 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:16:03 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:16:08 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:16:13 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:16:18 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:16:23 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:16:28 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:16:33 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:16:38 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:16:41 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelActive() @552 - PC /192.168.3.8:49366 connected!
+2019.06.13 11:16:41 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelActive() @560 - Channel Num : 1
+2019.06.13 11:16:41 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : Login+songchaochao;6ce76966ad1e30eb4589279a8e19c2f4
+2019.06.13 11:16:41 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler$1 apply() @154 - /192.168.3.8:49366's Key Correct!
+2019.06.13 11:16:41 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocsNames+isodate:2019-06-13,2019-06-14
+2019.06.13 11:16:43 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:16:48 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:16:53 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:16:58 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:17:03 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:17:08 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:17:13 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:17:18 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:17:23 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:17:28 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:17:33 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:17:38 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:17:43 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:17:48 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:17:50 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : Disconnect
+2019.06.13 11:17:50 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler ctxCloseFuture() @243 - Got In Close : [id: 0x4eae713c, L:0.0.0.0/0.0.0.0:8089 ! R:/192.168.3.8:49366]
+2019.06.13 11:17:50 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler ctxCloseFuture() @243 - Got In Close : [id: 0x4eae713c, L:0.0.0.0/0.0.0.0:8089 ! R:/192.168.3.8:49366]
+2019.06.13 11:17:50 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelInactive() @569 - PC /192.168.3.8:49366 disconnected!
+2019.06.13 11:17:50 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelInactive() @570 - Channel Num : 0
+2019.06.13 11:17:53 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:17:58 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:18:03 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:18:08 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:18:13 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:18:14 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelActive() @552 - PC /192.168.3.8:49429 connected!
+2019.06.13 11:18:14 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelActive() @560 - Channel Num : 1
+2019.06.13 11:18:14 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : Login+songchaochao;2fd57b2cab6d3f2acf9d198697b211f9
+2019.06.13 11:18:14 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler$1 apply() @154 - /192.168.3.8:49429's Key Correct!
+2019.06.13 11:18:14 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocsNames+isodate:2019-06-13,2019-06-14
+2019.06.13 11:18:18 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:18:23 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:18:28 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:18:33 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:18:38 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:18:43 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:18:48 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:18:53 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:18:58 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:19:03 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:19:08 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:19:13 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:19:18 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:19:23 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:19:28 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:19:33 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:19:38 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:19:43 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:19:48 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:19:53 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:19:58 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:20:03 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:20:08 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:20:13 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:20:18 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:20:23 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:20:28 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:20:33 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:20:36 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : StartTest+实验1/2019-06-13T11:20:35;3168;Configure File 
+Save Time: 2019-06-13T11:20:35
+Test Time: 
+
+Device configure start---------------------------------------
+终端,    使能,    CAN1使能,    CAN1波特率,    CAN2使能,    CAN2波特率
+1,    1,    1,    50,    1,    50
+2,    1,    1,    50,    1,    50
+3,    1,    1,    50,    1,    50
+4,    1,    1,    25,    0,    50
+5,    1,    0,    50,    0,    50
+Device configure end---------------------------------------
+
+CAN configure start---------------------------------------
+Table Size:
+4,    8
+状态,    终端,    通道,    ID(hex),    颜色,    名称,    表达式,    数量
+false,    ,    ,    ,    #ffffff,    ,    ,    
+false,    ,    ,    ,    #ffffff,    ,    ,    
+false,    ,    ,    ,    #ffffff,    ,    ,    
+false,    ,    ,    ,    #ffffff,    ,    ,    
+CAN configure end---------------------------------------
+
+Signal configure start---------------------------------------
+Table Size:
+30,    8
+终端,    通道,    状态,    颜色,    模式,    名称,    表达式,    数量
+终端涓€,    模拟通道涓€,    false,    #ffffff,    电压模式,    通道一名称,    X,    0,    
+终端涓€,    模拟通道浜?,    false,    #ffffff,    电压模式,    通道二名称,    X,    0,    
+终端涓€,    模拟通道涓?,    false,    #ffffff,    电压模式,    通道三名称,    X,    0,    
+终端涓€,    模拟通道鍥?,    false,    #ffffff,    电压模式,    通道四名称,    X,    0,    
+终端涓€,    数字通道涓€,    false,    #ffffff,    ,    通道五名称,    X,    0,    
+终端涓€,    数字通道浜?,    false,    #ffffff,    ,    通道六名称,    X,    0,    
+终端浜?,    模拟通道涓€,    false,    #ffffff,    电压模式,    通道一名称,    X,    0,    
+终端浜?,    模拟通道浜?,    false,    #ffffff,    电压模式,    通道二名称,    X,    0,    
+终端浜?,    模拟通道涓?,    false,    #ffffff,    电压模式,    通道三名称,    X,    0,    
+终端浜?,    模拟通道鍥?,    false,    #ffffff,    电压模式,    通道四名称,    X,    0,    
+终端浜?,    数字通道涓€,    false,    #ffffff,    ,    通道五名称,    X,    0,    
+终端浜?,    数字通道浜?,    false,    #ffffff,    ,    通道六名称,    X,    0,    
+终端涓?,    模拟通道涓€,    false,    #ffffff,    电压模式,    通道一名称,    X,    0,    
+终端涓?,    模拟通道浜?,    false,    #ffffff,    电压模式,    通道二名称,    X,    0,    
+终端涓?,    模拟通道涓?,    false,    #ffffff,    电压模式,    通道三名称,    X,    0,    
+终端涓?,    模拟通道鍥?,    false,    #ffffff,    电压模式,    通道四名称,    X,    0,    
+终端涓?,    数字通道涓€,    false,    #ffffff,    ,    通道五名称,    X,    0,    
+终端涓?,    数字通道浜?,    false,    #ffffff,    ,    通道六名称,    X,    0,    
+终端鍥?,    模拟通道涓€,    true,    #55aaff,    电流模式,    通道一名称,    X,    0,    
+终端鍥?,    模拟通道浜?,    true,    #aa007f,    电流模式,    通道二名称,    X,    0,    
+终端鍥?,    模拟通道涓?,    true,    #ff0000,    电压模式,    通道三名称,    X,    0,    
+终端鍥?,    模拟通道鍥?,    true,    #ff0000,    电压模式,    通道四名称,    X,    0,    
+终端鍥?,    数字通道涓€,    false,    #ffffff,    ,    通道五名称,    X,    0,    
+终端鍥?,    数字通道浜?,    false,    #ffffff,    ,    通道六名称,    X,    0,    
+终端浜?,    模拟通道涓€,    false,    #ffffff,    电压模式,    通道一名称,    X,    0,    
+终端浜?,    模拟通道浜?,    false,    #ffffff,    电压模式,    通道二名称,    X,    0,    
+终端浜?,    模拟通道涓?,    false,    #ffffff,    电压模式,    通道三名称,    X,    0,    
+终端浜?,    模拟通道鍥?,    false,    #ffffff,    电压模式,    通道四名称,    X,    0,    
+终端浜?,    数字通道涓€,    false,    #ffffff,    ,    通道五名称,    X,    0,    
+终端浜?,    数字通道浜?,    false,    #ffffff,    ,    通道六名称,    X,    0,    
+Signal configure end---------------------------------------
+
+2019.06.13 11:20:36 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Opened connection [connectionId{localValue:11, serverValue:72}] to localhost:27017
+2019.06.13 11:20:36 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler$6 onResult() @316 - Find Existed Test("实验1/2019-06-13T11:20:35")'s Config File : Deleted
+
+2019.06.13 11:20:36 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler$7 onResult() @332 - Test("实验1/2019-06-13T11:20:35") Config File Saved
+2019.06.13 11:20:36 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler$7 onResult() @333 - -Config File Detail : 
+  Configure File 
+Save Time: 2019-06-13T11:20:35
+Test Time: 
+
+Device configure start---------------------------------------
+终端,    使能,    CAN1使能,    CAN1波特率,    CAN2使能,    CAN2波特率
+1,    1,    1,    50,    1,    50
+2,    1,    1,    50,    1,    50
+3,    1,    1,    50,    1,    50
+4,    1,    1,    25,    0,    50
+5,    1,    0,    50,    0,    50
+Device configure end---------------------------------------
+
+CAN configure start---------------------------------------
+Table Size:
+4,    8
+状态,    终端,    通道,    ID(hex),    颜色,    名称,    表达式,    数量
+false,    ,    ,    ,    #ffffff,    ,    ,    
+false,    ,    ,    ,    #ffffff,    ,    ,    
+false,    ,    ,    ,    #ffffff,    ,    ,    
+false,    ,    ,    ,    #ffffff,    ,    ,    
+CAN configure end---------------------------------------
+
+Signal configure start---------------------------------------
+Table Size:
+30,    8
+终端,    通道,    状态,    颜色,    模式,    名称,    表达式,    数量
+终端涓€,    模拟通道涓€,    false,    #ffffff,    电压模式,    通道一名称,    X,    0,    
+终端涓€,    模拟通道浜?,    false,    #ffffff,    电压模式,    通道二名称,    X,    0,    
+终端涓€,    模拟通道涓?,    false,    #ffffff,    电压模式,    通道三名称,    X,    0,    
+终端涓€,    模拟通道鍥?,    false,    #ffffff,    电压模式,    通道四名称,    X,    0,    
+终端涓€,    数字通道涓€,    false,    #ffffff,    ,    通道五名称,    X,    0,    
+终端涓€,    数字通道浜?,    false,    #ffffff,    ,    通道六名称,    X,    0,    
+终端浜?,    模拟通道涓€,    false,    #ffffff,    电压模式,    通道一名称,    X,    0,    
+终端浜?,    模拟通道浜?,    false,    #ffffff,    电压模式,    通道二名称,    X,    0,    
+终端浜?,    模拟通道涓?,    false,    #ffffff,    电压模式,    通道三名称,    X,    0,    
+终端浜?,    模拟通道鍥?,    false,    #ffffff,    电压模式,    通道四名称,    X,    0,    
+终端浜?,    数字通道涓€,    false,    #ffffff,    ,    通道五名称,    X,    0,    
+终端浜?,    数字通道浜?,    false,    #ffffff,    ,    通道六名称,    X,    0,    
+终端涓?,    模拟通道涓€,    false,    #ffffff,    电压模式,    通道一名称,    X,    0,    
+终端涓?,    模拟通道浜?,    false,    #ffffff,    电压模式,    通道二名称,    X,    0,    
+终端涓?,    模拟通道涓?,    false,    #ffffff,    电压模式,    通道三名称,    X,    0,    
+终端涓?,    模拟通道鍥?,    false,    #ffffff,    电压模式,    通道四名称,    X,    0,    
+终端涓?,    数字通道涓€,    false,    #ffffff,    ,    通道五名称,    X,    0,    
+终端涓?,    数字通道浜?,    false,    #ffffff,    ,    通道六名称,    X,    0,    
+终端鍥?,    模拟通道涓€,    true,    #55aaff,    电流模式,    通道一名称,    X,    0,    
+终端鍥?,    模拟通道浜?,    true,    #aa007f,    电流模式,    通道二名称,    X,    0,    
+终端鍥?,    模拟通道涓?,    true,    #ff0000,    电压模式,    通道三名称,    X,    0,    
+终端鍥?,    模拟通道鍥?,    true,    #ff0000,    电压模式,    通道四名称,    X,    0,    
+终端鍥?,    数字通道涓€,    false,    #ffffff,    ,    通道五名称,    X,    0,    
+终端鍥?,    数字通道浜?,    false,    #ffffff,    ,    通道六名称,    X,    0,    
+终端浜?,    模拟通道涓€,    false,    #ffffff,    电压模式,    通道一名称,    X,    0,    
+终端浜?,    模拟通道浜?,    false,    #ffffff,    电压模式,    通道二名称,    X,    0,    
+终端浜?,    模拟通道涓?,    false,    #ffffff,    电压模式,    通道三名称,    X,    0,    
+终端浜?,    模拟通道鍥?,    false,    #ffffff,    电压模式,    通道四名称,    X,    0,    
+终端浜?,    数字通道涓€,    false,    #ffffff,    ,    通道五名称,    X,    0,    
+终端浜?,    数字通道浜?,    false,    #ffffff,    ,    通道六名称,    X,    0,    
+Signal configure end---------------------------------------
+
+2019.06.13 11:20:38 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:20:43 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:20:48 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:20:53 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:20:58 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:21:03 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:21:08 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:21:13 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:21:18 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:21:23 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 59
+2019.06.13 11:21:28 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 100
+2019.06.13 11:21:33 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 44
+2019.06.13 11:21:38 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:21:38 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocsNames+isodate:2019-06-13,2019-06-14
+2019.06.13 11:21:41 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : GetTestConfig+实验1/2019-06-13T11:20:35
+2019.06.13 11:21:41 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocs+test:实验1/2019-06-13T11:20:35
+2019.06.13 11:21:41 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-06) successfully
+2019.06.13 11:21:41 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-07) successfully
+2019.06.13 11:21:43 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:21:48 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:21:53 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:21:57 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : GetTestConfig+实验1/2019-06-13T11:20:35
+2019.06.13 11:21:57 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocs+test:实验1/2019-06-13T11:20:35
+2019.06.13 11:21:57 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-06) successfully
+2019.06.13 11:21:57 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-07) successfully
+2019.06.13 11:21:58 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:22:03 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:22:08 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:22:13 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:22:16 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : GetTestConfig+实验1/2019-06-13T11:20:35
+2019.06.13 11:22:16 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocs+test:实验1/2019-06-13T11:20:35
+2019.06.13 11:22:16 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-06) successfully
+2019.06.13 11:22:16 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-07) successfully
+2019.06.13 11:22:18 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:22:23 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:22:28 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:22:33 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:22:38 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:22:43 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : StartTest+实验1/2019-06-13T11:22:41;3187;Configure File 
+Save Time: 2019-06-13T11:22:41
+Test Time: 2019-06-13T11:20:35
+
+Device configure start---------------------------------------
+终端,    使能,    CAN1使能,    CAN1波特率,    CAN2使能,    CAN2波特率
+1,    1,    1,    50,    1,    50
+2,    1,    1,    50,    1,    50
+3,    1,    1,    50,    1,    50
+4,    1,    1,    25,    0,    50
+5,    1,    0,    50,    0,    50
+Device configure end---------------------------------------
+
+CAN configure start---------------------------------------
+Table Size:
+4,    8
+状态,    终端,    通道,    ID(hex),    颜色,    名称,    表达式,    数量
+false,    ,    ,    ,    #ffffff,    ,    ,    
+false,    ,    ,    ,    #ffffff,    ,    ,    
+false,    ,    ,    ,    #ffffff,    ,    ,    
+false,    ,    ,    ,    #ffffff,    ,    ,    
+CAN configure end---------------------------------------
+
+Signal configure start---------------------------------------
+Table Size:
+30,    8
+终端,    通道,    状态,    颜色,    模式,    名称,    表达式,    数量
+终端涓€,    模拟通道涓€,    false,    #ffffff,    电压模式,    通道一名称,    X,    0,    
+终端涓€,    模拟通道浜?,    false,    #ffffff,    电压模式,    通道二名称,    X,    0,    
+终端涓€,    模拟通道涓?,    false,    #ffffff,    电压模式,    通道三名称,    X,    0,    
+终端涓€,    模拟通道鍥?,    false,    #ffffff,    电压模式,    通道四名称,    X,    0,    
+终端涓€,    数字通道涓€,    false,    #ffffff,    ,    通道五名称,    X,    0,    
+终端涓€,    数字通道浜?,    false,    #ffffff,    ,    通道六名称,    X,    0,    
+终端浜?,    模拟通道涓€,    false,    #ffffff,    电压模式,    通道一名称,    X,    0,    
+终端浜?,    模拟通道浜?,    false,    #ffffff,    电压模式,    通道二名称,    X,    0,    
+终端浜?,    模拟通道涓?,    false,    #ffffff,    电压模式,    通道三名称,    X,    0,    
+终端浜?,    模拟通道鍥?,    false,    #ffffff,    电压模式,    通道四名称,    X,    0,    
+终端浜?,    数字通道涓€,    false,    #ffffff,    ,    通道五名称,    X,    0,    
+终端浜?,    数字通道浜?,    false,    #ffffff,    ,    通道六名称,    X,    0,    
+终端涓?,    模拟通道涓€,    false,    #ffffff,    电压模式,    通道一名称,    X,    0,    
+终端涓?,    模拟通道浜?,    false,    #ffffff,    电压模式,    通道二名称,    X,    0,    
+终端涓?,    模拟通道涓?,    false,    #ffffff,    电压模式,    通道三名称,    X,    0,    
+终端涓?,    模拟通道鍥?,    false,    #ffffff,    电压模式,    通道四名称,    X,    0,    
+终端涓?,    数字通道涓€,    false,    #ffffff,    ,    通道五名称,    X,    0,    
+终端涓?,    数字通道浜?,    false,    #ffffff,    ,    通道六名称,    X,    0,    
+终端鍥?,    模拟通道涓€,    true,    #55aaff,    电流模式,    通道一名称,    X,    0,    
+终端鍥?,    模拟通道浜?,    true,    #aa007f,    电流模式,    通道二名称,    X,    0,    
+终端鍥?,    模拟通道涓?,    true,    #ff0000,    电压模式,    通道三名称,    X,    0,    
+终端鍥?,    模拟通道鍥?,    true,    #ff0000,    电压模式,    通道四名称,    X,    0,    
+终端鍥?,    数字通道涓€,    false,    #ffffff,    ,    通道五名称,    X,    0,    
+终端鍥?,    数字通道浜?,    false,    #ffffff,    ,    通道六名称,    X,    0,    
+终端浜?,    模拟通道涓€,    false,    #ffffff,    电压模式,    通道一名称,    X,    0,    
+终端浜?,    模拟通道浜?,    false,    #ffffff,    电压模式,    通道二名称,    X,    0,    
+终端浜?,    模拟通道涓?,    false,    #ffffff,    电压模式,    通道三名称,    X,    0,    
+终端浜?,    模拟通道鍥?,    false,    #ffffff,    电压模式,    通道四名称,    X,    0,    
+终端浜?,    数字通道涓€,    false,    #ffffff,    ,    通道五名称,    X,    0,    
+终端浜?,    数字通道浜?,    false,    #ffffff,    ,    通道六名称,    X,    0,    
+Signal configure end---------------------------------------
+
+2019.06.13 11:22:43 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler$6 onResult() @316 - Find Existed Test("实验1/2019-06-13T11:22:41")'s Config File : Deleted
+
+2019.06.13 11:22:43 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler$7 onResult() @332 - Test("实验1/2019-06-13T11:22:41") Config File Saved
+2019.06.13 11:22:43 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler$7 onResult() @333 - -Config File Detail : 
+  Configure File 
+Save Time: 2019-06-13T11:22:41
+Test Time: 2019-06-13T11:20:35
+
+Device configure start---------------------------------------
+终端,    使能,    CAN1使能,    CAN1波特率,    CAN2使能,    CAN2波特率
+1,    1,    1,    50,    1,    50
+2,    1,    1,    50,    1,    50
+3,    1,    1,    50,    1,    50
+4,    1,    1,    25,    0,    50
+5,    1,    0,    50,    0,    50
+Device configure end---------------------------------------
+
+CAN configure start---------------------------------------
+Table Size:
+4,    8
+状态,    终端,    通道,    ID(hex),    颜色,    名称,    表达式,    数量
+false,    ,    ,    ,    #ffffff,    ,    ,    
+false,    ,    ,    ,    #ffffff,    ,    ,    
+false,    ,    ,    ,    #ffffff,    ,    ,    
+false,    ,    ,    ,    #ffffff,    ,    ,    
+CAN configure end---------------------------------------
+
+Signal configure start---------------------------------------
+Table Size:
+30,    8
+终端,    通道,    状态,    颜色,    模式,    名称,    表达式,    数量
+终端涓€,    模拟通道涓€,    false,    #ffffff,    电压模式,    通道一名称,    X,    0,    
+终端涓€,    模拟通道浜?,    false,    #ffffff,    电压模式,    通道二名称,    X,    0,    
+终端涓€,    模拟通道涓?,    false,    #ffffff,    电压模式,    通道三名称,    X,    0,    
+终端涓€,    模拟通道鍥?,    false,    #ffffff,    电压模式,    通道四名称,    X,    0,    
+终端涓€,    数字通道涓€,    false,    #ffffff,    ,    通道五名称,    X,    0,    
+终端涓€,    数字通道浜?,    false,    #ffffff,    ,    通道六名称,    X,    0,    
+终端浜?,    模拟通道涓€,    false,    #ffffff,    电压模式,    通道一名称,    X,    0,    
+终端浜?,    模拟通道浜?,    false,    #ffffff,    电压模式,    通道二名称,    X,    0,    
+终端浜?,    模拟通道涓?,    false,    #ffffff,    电压模式,    通道三名称,    X,    0,    
+终端浜?,    模拟通道鍥?,    false,    #ffffff,    电压模式,    通道四名称,    X,    0,    
+终端浜?,    数字通道涓€,    false,    #ffffff,    ,    通道五名称,    X,    0,    
+终端浜?,    数字通道浜?,    false,    #ffffff,    ,    通道六名称,    X,    0,    
+终端涓?,    模拟通道涓€,    false,    #ffffff,    电压模式,    通道一名称,    X,    0,    
+终端涓?,    模拟通道浜?,    false,    #ffffff,    电压模式,    通道二名称,    X,    0,    
+终端涓?,    模拟通道涓?,    false,    #ffffff,    电压模式,    通道三名称,    X,    0,    
+终端涓?,    模拟通道鍥?,    false,    #ffffff,    电压模式,    通道四名称,    X,    0,    
+终端涓?,    数字通道涓€,    false,    #ffffff,    ,    通道五名称,    X,    0,    
+终端涓?,    数字通道浜?,    false,    #ffffff,    ,    通道六名称,    X,    0,    
+终端鍥?,    模拟通道涓€,    true,    #55aaff,    电流模式,    通道一名称,    X,    0,    
+终端鍥?,    模拟通道浜?,    true,    #aa007f,    电流模式,    通道二名称,    X,    0,    
+终端鍥?,    模拟通道涓?,    true,    #ff0000,    电压模式,    通道三名称,    X,    0,    
+终端鍥?,    模拟通道鍥?,    true,    #ff0000,    电压模式,    通道四名称,    X,    0,    
+终端鍥?,    数字通道涓€,    false,    #ffffff,    ,    通道五名称,    X,    0,    
+终端鍥?,    数字通道浜?,    false,    #ffffff,    ,    通道六名称,    X,    0,    
+终端浜?,    模拟通道涓€,    false,    #ffffff,    电压模式,    通道一名称,    X,    0,    
+终端浜?,    模拟通道浜?,    false,    #ffffff,    电压模式,    通道二名称,    X,    0,    
+终端浜?,    模拟通道涓?,    false,    #ffffff,    电压模式,    通道三名称,    X,    0,    
+终端浜?,    模拟通道鍥?,    false,    #ffffff,    电压模式,    通道四名称,    X,    0,    
+终端浜?,    数字通道涓€,    false,    #ffffff,    ,    通道五名称,    X,    0,    
+终端浜?,    数字通道浜?,    false,    #ffffff,    ,    通道六名称,    X,    0,    
+Signal configure end---------------------------------------
+
+2019.06.13 11:22:43 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:22:48 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 100
+2019.06.13 11:22:53 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 100
+2019.06.13 11:22:58 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 100
+2019.06.13 11:23:03 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 100
+2019.06.13 11:23:08 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 10
+2019.06.13 11:23:09 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocsNames+isodate:2019-06-13,2019-06-14
+2019.06.13 11:23:12 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocsNames+isodate:2019-06-13,2019-06-14
+2019.06.13 11:23:13 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:23:14 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocsNames+isodate:2019-06-13,2019-06-14
+2019.06.13 11:23:17 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocsNames+isodate:2019-06-13,2019-06-14
+2019.06.13 11:23:18 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:23:19 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : GetTestConfig+实验1/2019-06-13T11:22:41
+2019.06.13 11:23:19 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocs+test:实验1/2019-06-13T11:22:41
+2019.06.13 11:23:19 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-06) successfully
+2019.06.13 11:23:19 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-07) successfully
+2019.06.13 11:23:19 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : GetTestConfig+实验1/2019-06-13T11:22:41
+2019.06.13 11:23:19 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocs+test:实验1/2019-06-13T11:22:41
+2019.06.13 11:23:19 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-06) successfully
+2019.06.13 11:23:19 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-07) successfully
+2019.06.13 11:23:23 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:23:28 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:23:30 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : GetTestConfig+实验1/2019-06-13T11:22:41
+2019.06.13 11:23:30 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocs+test:实验1/2019-06-13T11:22:41
+2019.06.13 11:23:30 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-06) successfully
+2019.06.13 11:23:30 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-07) successfully
+2019.06.13 11:23:31 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : GetTestConfig+实验1/2019-06-13T11:20:35
+2019.06.13 11:23:31 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocs+test:实验1/2019-06-13T11:20:35
+2019.06.13 11:23:31 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-06) successfully
+2019.06.13 11:23:31 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-07) successfully
+2019.06.13 11:23:33 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:23:38 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:23:43 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:23:43 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : GetTestConfig+实验1/2019-06-13T11:22:41
+2019.06.13 11:23:43 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocs+test:实验1/2019-06-13T11:22:41
+2019.06.13 11:23:43 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-06) successfully
+2019.06.13 11:23:43 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-07) successfully
+2019.06.13 11:23:48 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:23:53 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:23:58 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:24:03 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:24:08 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:24:13 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:24:18 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:24:23 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:24:28 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:24:33 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:24:38 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:24:43 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:24:48 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:24:53 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:24:58 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:25:03 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:25:06 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : GetTestConfig+实验1/2019-06-13T11:22:41
+2019.06.13 11:25:06 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocs+test:实验1/2019-06-13T11:22:41
+2019.06.13 11:25:06 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-06) successfully
+2019.06.13 11:25:06 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-07) successfully
+2019.06.13 11:25:08 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:25:13 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:25:16 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : GetTestConfig+实验1/2019-06-13T11:22:41
+2019.06.13 11:25:16 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocs+test:实验1/2019-06-13T11:22:41
+2019.06.13 11:25:16 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-06) successfully
+2019.06.13 11:25:16 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-07) successfully
+2019.06.13 11:25:18 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:25:20 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : GetTestConfig+实验1/2019-06-13T11:22:41
+2019.06.13 11:25:20 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocs+test:实验1/2019-06-13T11:22:41
+2019.06.13 11:25:20 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-06) successfully
+2019.06.13 11:25:20 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-07) successfully
+2019.06.13 11:25:22 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : GetTestConfig+实验1/2019-06-13T11:20:35
+2019.06.13 11:25:22 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocs+test:实验1/2019-06-13T11:20:35
+2019.06.13 11:25:22 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-06) successfully
+2019.06.13 11:25:22 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-07) successfully
+2019.06.13 11:25:23 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:25:24 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : GetTestConfig+实验1/2019-06-13T11:22:41
+2019.06.13 11:25:24 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocs+test:实验1/2019-06-13T11:22:41
+2019.06.13 11:25:24 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-06) successfully
+2019.06.13 11:25:24 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-07) successfully
+2019.06.13 11:25:25 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : GetTestConfig+实验1/2019-06-13T11:20:35
+2019.06.13 11:25:25 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocs+test:实验1/2019-06-13T11:20:35
+2019.06.13 11:25:25 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-06) successfully
+2019.06.13 11:25:25 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-07) successfully
+2019.06.13 11:25:26 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : GetTestConfig+实验1/2019-06-13T11:22:41
+2019.06.13 11:25:26 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocs+test:实验1/2019-06-13T11:22:41
+2019.06.13 11:25:26 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-06) successfully
+2019.06.13 11:25:26 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-07) successfully
+2019.06.13 11:25:27 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : GetTestConfig+实验1/2019-06-13T11:20:35
+2019.06.13 11:25:27 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocs+test:实验1/2019-06-13T11:20:35
+2019.06.13 11:25:27 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-06) successfully
+2019.06.13 11:25:27 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-07) successfully
+2019.06.13 11:25:28 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:25:28 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : GetTestConfig+实验1/2019-06-13T11:20:35
+2019.06.13 11:25:28 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocs+test:实验1/2019-06-13T11:20:35
+2019.06.13 11:25:28 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-06) successfully
+2019.06.13 11:25:28 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-07) successfully
+2019.06.13 11:25:29 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : GetTestConfig+实验1/2019-06-13T11:22:41
+2019.06.13 11:25:29 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocs+test:实验1/2019-06-13T11:22:41
+2019.06.13 11:25:29 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-06) successfully
+2019.06.13 11:25:29 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-07) successfully
+2019.06.13 11:25:30 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : GetTestConfig+实验1/2019-06-13T11:20:35
+2019.06.13 11:25:30 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocs+test:实验1/2019-06-13T11:20:35
+2019.06.13 11:25:30 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-06) successfully
+2019.06.13 11:25:30 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-07) successfully
+2019.06.13 11:25:33 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:25:37 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : GetTestConfig+实验1/2019-06-13T11:20:35
+2019.06.13 11:25:37 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocs+test:实验1/2019-06-13T11:20:35
+2019.06.13 11:25:37 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-06) successfully
+2019.06.13 11:25:37 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-07) successfully
+2019.06.13 11:25:38 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:25:39 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : GetTestConfig+实验1/2019-06-13T11:22:41
+2019.06.13 11:25:39 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocs+test:实验1/2019-06-13T11:22:41
+2019.06.13 11:25:39 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-06) successfully
+2019.06.13 11:25:39 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-07) successfully
+2019.06.13 11:25:41 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : GetTestConfig+实验1/2019-06-13T11:20:35
+2019.06.13 11:25:41 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocs+test:实验1/2019-06-13T11:20:35
+2019.06.13 11:25:41 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-06) successfully
+2019.06.13 11:25:41 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-07) successfully
+2019.06.13 11:25:43 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:25:43 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : GetTestConfig+实验1/2019-06-13T11:22:41
+2019.06.13 11:25:43 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocs+test:实验1/2019-06-13T11:22:41
+2019.06.13 11:25:43 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-06) successfully
+2019.06.13 11:25:43 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-07) successfully
+2019.06.13 11:25:48 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:25:53 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:25:58 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:25:59 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : GetTestConfig+实验1/2019-06-13T11:22:41
+2019.06.13 11:26:00 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : MongoFindDocs+test:实验1/2019-06-13T11:22:41
+2019.06.13 11:26:00 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-06) successfully
+2019.06.13 11:26:00 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd resetCol() @176 - Connected to db.col(udp.2019-07) successfully
+2019.06.13 11:26:03 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:26:08 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:26:13 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:26:18 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:26:23 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:26:28 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:26:33 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:26:38 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:26:43 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:26:48 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:26:53 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:26:58 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:27:03 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:27:08 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:27:13 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:27:14 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelRead() @273 - Got Cmd : Disconnect
+2019.06.13 11:27:14 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler ctxCloseFuture() @243 - Got In Close : [id: 0x878ae66b, L:0.0.0.0/0.0.0.0:8089 ! R:/192.168.3.8:49429]
+2019.06.13 11:27:14 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler ctxCloseFuture() @243 - Got In Close : [id: 0x878ae66b, L:0.0.0.0/0.0.0.0:8089 ! R:/192.168.3.8:49429]
+2019.06.13 11:27:14 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelInactive() @569 - PC /192.168.3.8:49429 disconnected!
+2019.06.13 11:27:14 CST INFO  cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler channelInactive() @570 - Channel Num : 0
+2019.06.13 11:27:18 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:27:23 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:27:28 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:27:33 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:27:38 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:27:43 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:27:48 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:27:53 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:27:58 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:28:03 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:28:08 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:28:13 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:28:18 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:28:23 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:28:28 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:28:33 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:28:38 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:28:43 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:28:48 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:28:53 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:28:58 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:29:03 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:29:08 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:29:13 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:29:18 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:29:23 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:29:28 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:29:33 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:29:38 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:29:43 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:29:48 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:29:53 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:29:58 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:30:03 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:30:08 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:30:13 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:30:18 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 11:30:23 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
