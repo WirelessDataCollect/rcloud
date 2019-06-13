@@ -284,7 +284,7 @@ public class RuiliPcTcpHandler extends ChannelInboundHandlerAdapter {
                     default:
                         break;
                 }
-            }else if(RuiliPcTcpHandler.pcChMap.get(ctx.channel().remoteAddress().toString()).getStatus().equals(RuiliPcChannelAttr.REQUEST_CONNECT_STA)) {//已经登录REQUEST_CONNECT_STA) {LOGINED_STA
+            }else if(RuiliPcTcpHandler.pcChMap.get(ctx.channel().remoteAddress().toString()).getStatus().equals(RuiliPcChannelAttr.LOGINED_STA)) {//已经登录REQUEST_CONNECT_STA) {LOGINED_STA
                 //TODO 将REQUEST_CONNECT_STA改回来
                 //判断cmd类型
                 switch(cmd) {

@@ -1,0 +1,61 @@
+2019.06.13 at 09:10:04 CST INFO  org.springframework.boot.StartupInfoLogger logStarting() @50 - Starting BootApplication on DESKTOP-T8PV6O0 with PID 16492 (F:\Softcodes\Java\rcloud\target\classes started by 宋超超 in F:\Softcodes\Java\rcloud)
+2019.06.13 at 09:10:04 CST INFO  org.springframework.boot.SpringApplication logStartupProfileInfo() @675 - No active profile set, falling back to default profiles: default
+2019.06.13 at 09:10:05 CST INFO  org.springframework.scheduling.concurrent.ExecutorConfigurationSupport initialize() @171 - Initializing ExecutorService
+2019.06.13 at 09:10:05 CST INFO  org.springframework.scheduling.concurrent.ExecutorConfigurationSupport initialize() @171 - Initializing ExecutorService 'asyncExecutor'
+2019.06.13 at 09:10:05 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019.06.13 at 09:10:05 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Opened connection [connectionId{localValue:1, serverValue:38}] to localhost:27017
+2019.06.13 at 09:10:05 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 8]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2262400}
+2019.06.13 at 09:10:05 CST INFO  org.springframework.scheduling.concurrent.ExecutorConfigurationSupport initialize() @171 - Initializing ExecutorService 'taskScheduler'
+2019.06.13 at 09:10:05 CST INFO  org.springframework.boot.StartupInfoLogger logStarted() @59 - Started BootApplication in 1.465 seconds (JVM running for 2.983)
+2019.06.13 at 09:10:05 CST INFO  cn.sorl.rcloud.biz.threads.RuiliNodeHandlerTask start() @84 - Starting Node-Thread
+2019.06.13 at 09:10:05 CST INFO  cn.sorl.rcloud.biz.threads.RuiliPcHandlerTask start() @103 - Starting Pc-Thread
+2019.06.13 at 09:10:05 CST INFO  cn.sorl.rcloud.biz.threads.RuiliNodeHandlerTask run() @80 - Listen port for nodes: 5001
+2019.06.13 at 09:10:05 CST INFO  cn.sorl.rcloud.biz.threads.RuiliPcHandlerTask run() @95 - Listen port for pcs: 8089
+2019.06.13 at 09:10:06 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019.06.13 at 09:10:06 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Opened connection [connectionId{localValue:2, serverValue:39}] to localhost:27017
+2019.06.13 at 09:10:06 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 8]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=816800}
+2019.06.13 at 09:10:06 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd <init>() @56 - Connected to db.col(udp.2019-06) successfully
+2019.06.13 at 09:10:06 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019.06.13 at 09:10:06 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - No server chosen by com.mongodb.async.client.ClientSessionHelper$1@3c8f3657 from cluster description ClusterDescription{type=UNKNOWN, connectionMode=SINGLE, serverDescriptions=[ServerDescription{address=localhost:27017, type=UNKNOWN, state=CONNECTING}]}. Waiting for 30000 ms before timing out
+2019.06.13 at 09:10:06 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd <init>() @56 - Connected to db.col(udp.config) successfully
+2019.06.13 at 09:10:06 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019.06.13 at 09:10:06 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Opened connection [connectionId{localValue:3, serverValue:40}] to localhost:27017
+2019.06.13 at 09:10:06 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Opened connection [connectionId{localValue:4, serverValue:41}] to localhost:27017
+2019.06.13 at 09:10:06 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd <init>() @56 - Connected to db.col(udp.2019-06) successfully
+2019.06.13 at 09:10:06 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 8]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=744000}
+2019.06.13 at 09:10:06 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019.06.13 at 09:10:06 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - No server chosen by com.mongodb.async.client.ClientSessionHelper$1@7fcdf060 from cluster description ClusterDescription{type=UNKNOWN, connectionMode=SINGLE, serverDescriptions=[ServerDescription{address=localhost:27017, type=UNKNOWN, state=CONNECTING}]}. Waiting for 30000 ms before timing out
+2019.06.13 at 09:10:06 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Opened connection [connectionId{localValue:5, serverValue:42}] to localhost:27017
+2019.06.13 at 09:10:06 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd <init>() @56 - Connected to db.col(data.admin) successfully
+2019.06.13 at 09:10:06 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Opened connection [connectionId{localValue:6, serverValue:43}] to localhost:27017
+2019.06.13 at 09:10:06 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 8]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=750900}
+2019.06.13 at 09:10:06 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Opened connection [connectionId{localValue:7, serverValue:44}] to localhost:27017
+2019.06.13 at 09:10:06 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 8]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=852000}
+2019.06.13 at 09:10:06 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd$1 onResult() @52 - db.col create index by "test_-1"(indexName_-1)
+2019.06.13 at 09:10:06 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd$1 onResult() @52 - db.col create index by "test_-1"(indexName_-1)
+2019.06.13 at 09:10:06 CST INFO  com.mongodb.diagnostics.logging.SLF4JLogger info() @71 - Opened connection [connectionId{localValue:8, serverValue:45}] to localhost:27017
+2019.06.13 at 09:10:06 CST INFO  cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd$1 onResult() @52 - db.col create index by "test_-1"(indexName_-1)
+2019.06.13 at 09:10:06 CST INFO  cn.sorl.rcloud.dal.netty.RuiliNodeUdpHandler channelActive() @63 - Device UDP channel [id: 0x32117801, L:/0:0:0:0:0:0:0:0:5001] created
+2019.06.13 at 09:10:11 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 at 09:10:16 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 at 09:10:21 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 at 09:10:26 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 at 09:10:31 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 at 09:10:36 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 at 09:10:41 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 at 09:10:46 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 at 09:10:51 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 at 09:10:56 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 at 09:11:01 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 at 09:11:06 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 at 09:11:11 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 at 09:11:16 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 at 09:11:21 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 at 09:11:26 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 at 09:11:31 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 at 09:11:36 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 at 09:11:41 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 at 09:11:46 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 at 09:11:51 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 at 09:11:56 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0
+2019.06.13 at 09:12:01 CST INFO  cn.sorl.rcloud.dal.netty.NettyPackCountTask run() @24 - NodeUdp's Periodic Packs : 0

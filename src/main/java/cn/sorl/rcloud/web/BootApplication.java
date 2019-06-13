@@ -1,9 +1,7 @@
 package cn.sorl.rcloud.web;
 
-import cn.sorl.rcloud.biz.pool.AsyncPoolIf;
 import cn.sorl.rcloud.biz.threads.RuiliNodeHandlerTask;
 import cn.sorl.rcloud.biz.threads.RuiliPcHandlerTask;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;

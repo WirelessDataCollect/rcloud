@@ -21,6 +21,6 @@ public class MgdConfig {
     }
     @Bean(name = "adminMgd")
     public SimpleMgd adminMgd(){
-        return new SimpleMgd("data", "admin", "test");
+        return new SimpleMgd("data", "admin", "");
     }
 }
