@@ -1,3 +1,6 @@
-/logs/*
+# 日志
+*.log
 
-/target/*
+# target
+target
+
