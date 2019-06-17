@@ -1,5 +1,6 @@
 package cn.sorl.rcloud.biz.pool;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,6 +27,7 @@ public class AsyncConfig {
 
     @Bean(name = "asyncExecutor")
     public Executor asyncExecutor() {
+
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         //核心线程数
         executor.setCorePoolSize(corePoolSize);
