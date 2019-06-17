@@ -1,15 +1,14 @@
-package cn.sorl.rcloud.web;
+package cn.sorl.rcloud;
 
 import cn.sorl.rcloud.biz.threads.RuiliNodeHandlerTask;
 import cn.sorl.rcloud.biz.threads.RuiliPcHandlerTask;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
+//@EnableAutoConfiguration  @ComponentScan和@Configuration
 @SpringBootApplication
-@ComponentScan({"cn.sorl.rcloud.biz.threads","cn.sorl.rcloud.biz.pool"})
 @EnableScheduling
 @EnableAsync
 /**
