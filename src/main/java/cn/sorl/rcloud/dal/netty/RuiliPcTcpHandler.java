@@ -456,10 +456,12 @@ public class RuiliPcTcpHandler extends ChannelInboundHandlerAdapter {
                                                 }catch(Exception e) {
                                                     logger.error("",e);
                                             }}, (result4SingleResultCallback, thread4SingleResultCallback) -> {//所有操作完成后的工作
-                                                ctx.write(Unpooled.copiedBuffer(RuiliPcCmdAttr.MONGODB_FIND_DOCS+
-                                                        RuiliPcCmdAttr.SEG_CMD_DONE_SIGNAL+RuiliPcCmdAttr.DONE_SIGNAL_OVER,CharsetUtil.UTF_8));
-                                                ctx.flush();
-                                                logger.debug(RuiliPcCmdAttr.MONGODB_FIND_DOCS+RuiliPcCmdAttr.SEG_CMD_DONE_SIGNAL+RuiliPcCmdAttr.DONE_SIGNAL_OVER);
+                                                if(colName.equals(yyyy_MM[1])){
+                                                    ctx.write(Unpooled.copiedBuffer(RuiliPcCmdAttr.MONGODB_FIND_DOCS+
+                                                            RuiliPcCmdAttr.SEG_CMD_DONE_SIGNAL+RuiliPcCmdAttr.DONE_SIGNAL_OVER,CharsetUtil.UTF_8));
+                                                    ctx.flush();
+                                                    logger.debug(RuiliPcCmdAttr.MONGODB_FIND_DOCS+RuiliPcCmdAttr.SEG_CMD_DONE_SIGNAL+RuiliPcCmdAttr.DONE_SIGNAL_OVER);
+                                                }
                                         });
                                     }
                                 } catch (ParseException e) {
