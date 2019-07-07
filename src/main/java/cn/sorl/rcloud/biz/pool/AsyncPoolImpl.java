@@ -32,8 +32,7 @@ public class AsyncPoolImpl implements AsyncPoolIf{
     public Future<String> getUserStrAsync(){
         logger.info("Start getUserStrAsync");
         SimpleMgd adminMgd = BeanContext.context.getBean("adminMgd", SimpleMgd.class);
-        FindIterable<Document> findIter = adminMgd.collection.find()
-                .projection(new BasicDBObject().append(RuiliAdmindbSegment.MONGODB_USER_NAME_KEY, 1).append("_id", 0));
+        FindIterable<Document> findIter = adminMgd.collection.find();
         //需要lock
         lock.lock();
         UserList.clear();
@@ -42,9 +41,10 @@ public class AsyncPoolImpl implements AsyncPoolIf{
                 @Override
                 public void apply(Document document) {
                     synchronized (UserList) {
-                        UserList.add(new Document(RuiliAdmindbSegment.MONGODB_USER_NAME_KEY+"Name",
-                                document.get(RuiliAdmindbSegment.MONGODB_USER_NAME_KEY,String.class))
-                                .append("userPrivilege",1).append("userCreate","2019-6-6 12:00:00").toJson());
+                        UserList.add(new Document(RuiliAdmindbSegment.MONGODB_USER_NAME_KEY,document.get(RuiliAdmindbSegment.MONGODB_USER_NAME_KEY,String.class))
+                                .append(RuiliAdmindbSegment.MONGODB_USER_PRIORTY,document.get(RuiliAdmindbSegment.MONGODB_USER_PRIORTY))
+                                .append(RuiliAdmindbSegment.MONGODB_USER_CREATE_TIME,document.get(RuiliAdmindbSegment.MONGODB_USER_CREATE_TIME))
+                                .toJson());
                     }
                 }
             }, new SingleResultCallback<Void>() {
