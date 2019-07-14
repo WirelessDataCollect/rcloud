@@ -268,7 +268,7 @@ public class RuiliPcTcpHandler extends ChannelInboundHandlerAdapter {
             BasicDBObject projections = null;
             //转化为string
             String message = ((ByteBuf)msg).toString(CharsetUtil.UTF_8);
-            String[] splitMsg = message.split(RuiliPcCmdAttr.SEG_CMD_INFO);//将CMD和info分成两段
+            String[] splitMsg = message.split(RuiliPcCmdAttr.SEG_CMD_INFO,2);//将CMD和info分成两段
             String cmd = splitMsg[0];
             logger.info("Got Cmd : "+ message);
             logger.debug("Msg Len: "+String.valueOf(splitMsg.length));
@@ -437,8 +437,9 @@ public class RuiliPcTcpHandler extends ChannelInboundHandlerAdapter {
                                     }
                                     //查询集合和下一个月的集合
                                     //最多查询两个月，时间跨度不能太大
-                                    for(String colName : yyyy_MM) {
+//                                    for(String colName : yyyy_MM) {
                                         //指向相应的集合
+                                        String colName = yyyy_MM[0];
                                         generalMgd.resetCol(colName);
                                         BasicDBObject projections = new BasicDBObject();
                                         projections.append(RuiliDatadbSegment.MONGODB_KEY_RAW_DATA, 1).append("_id", 0);
@@ -463,7 +464,7 @@ public class RuiliPcTcpHandler extends ChannelInboundHandlerAdapter {
                                                     logger.debug(RuiliPcCmdAttr.MONGODB_FIND_DOCS+RuiliPcCmdAttr.SEG_CMD_DONE_SIGNAL+RuiliPcCmdAttr.DONE_SIGNAL_OVER);
                                                 }
                                         });
-                                    }
+//                                    }
                                 } catch (ParseException e) {
                                     logger.info("",e);
                                 }
