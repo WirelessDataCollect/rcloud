@@ -24,10 +24,12 @@ import org.bson.types.Binary;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.naming.Context;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -66,7 +68,24 @@ public class RuiliPcTcpHandler extends ChannelInboundHandlerAdapter {
         this.generalMgd = general_mgd;
 
     }
-
+    /**
+     * 转发设备信息至PC端上位机
+     * @param temp
+     */
+    public static void send2Pc(ByteBuf temp) {   //这里需要是静态的，非静态依赖对象
+        //NEED TEST
+        String testName = RuiliNodeUdpDataProcessor.getFrameHeadTestName(temp.copy());
+        synchronized(RuiliPcTcpHandler.getPcChMap()) {
+            for(Iterator<Map.Entry<String,RuiliPcChannelAttr>> item = RuiliPcTcpHandler.getPcChMap().entrySet().iterator(); item.hasNext();) {
+                Map.Entry<String,RuiliPcChannelAttr> entry = item.next();
+                //判断是否为实时获取数据的状态,且和测试名称对应
+                if((entry.getValue().getStatus()==RuiliPcChannelAttr.DATA_GET_STA) && entry.getValue().getTestName().equals(testName)) {
+                    //发送数据
+                    entry.getValue().getContext().writeAndFlush(temp.copy());
+                }
+            }
+        }
+    }
     /**
      * 获取保存同服务器连接的PC的通道
      * @return {@link Map}

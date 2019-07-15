@@ -41,8 +41,8 @@ public class RuiliNodeUdpHandler extends SimpleChannelInboundHandler<DatagramPac
 //        runDeviceServer.incPacksNum();  //每次进入数据接受，都要更新包裹数目
             //如果数字超过了127,则会变成负数为了解决这个问题需要用getUnsignedByte
             ByteBuf temp = msg.content();
-//        //是否实时转发给上位机
-//        DeviceServerTools.send2Pc(temp);
+            //是否实时转发给上位机
+            RuiliPcTcpHandler.send2Pc(temp);
             //解析数据
             processor.dataProcess(temp);
             countTask.incPacksNum();

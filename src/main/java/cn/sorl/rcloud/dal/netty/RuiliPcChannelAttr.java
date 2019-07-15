@@ -1,6 +1,7 @@
 package cn.sorl.rcloud.dal.netty;
 
 import cn.sorl.rcloud.common.security.SimpleSaltMd5;
+import io.netty.buffer.ByteBuf;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 
@@ -34,6 +35,7 @@ public class RuiliPcChannelAttr {
         this.enryptSalt = SimpleSaltMd5.getRandStr();//随机初始化salt
         this.testName = "";
     }
+
     /**
      * 返回该通道的状态
      * @return Integer 通道的状态
