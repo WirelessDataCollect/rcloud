@@ -18,6 +18,7 @@ public class RuiliPcChannelAttr {
     public final static int DATA_GET_STA = 0x40;
     private final Channel channel;//通道,初始化后不可改变
     private final ChannelHandlerContext context;
+    private boolean ALLOW_SEND_DOCS = true;
     private String encryption;//加密算法
     private String enryptSalt;
     private String testName;
@@ -34,8 +35,26 @@ public class RuiliPcChannelAttr {
         this.encryption = "Md5";//保存RSA加密算法信息
         this.enryptSalt = SimpleSaltMd5.getRandStr();//随机初始化salt
         this.testName = "";
+        this.allowSendDocs();
     }
-
+    /**
+     * 停止发送DOCS标志位
+     */
+    public void stopSendDocs(){
+        this.ALLOW_SEND_DOCS = false;
+    }
+    /**
+     * 可以发送DOCS
+     */
+    public void allowSendDocs(){
+        this.ALLOW_SEND_DOCS = true;
+    }
+    /**
+     * 是否可以发送DOCS
+     */
+    public boolean isAllowSendDocs(){
+        return this.ALLOW_SEND_DOCS;
+    }
     /**
      * 返回该通道的状态
      * @return Integer 通道的状态

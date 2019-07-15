@@ -5,6 +5,9 @@ import cn.sorl.rcloud.common.time.TimeUtils;
 import cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd;
 import cn.sorl.rcloud.dal.mongodb.mgdpo.RuiliDatadbSegment;
 import cn.sorl.rcloud.dal.mongodb.mgdpo.RuiliInfodbSegment;
+import cn.sorl.rcloud.dal.netty.RuiliPcChannelAttr;
+import cn.sorl.rcloud.dal.netty.RuiliPcCmdAttr;
+import cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler;
 import com.mongodb.BasicDBObject;
 import com.mongodb.Block;
 import com.mongodb.async.SingleResultCallback;
@@ -13,6 +16,10 @@ import com.mongodb.async.client.FindIterable;
 import com.mongodb.async.client.MongoIterable;
 import com.mongodb.client.model.Indexes;
 import com.mongodb.client.result.DeleteResult;
+import io.netty.buffer.Unpooled;
+import io.netty.buffer.UnpooledUnsafeDirectByteBuf;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.util.CharsetUtil;
 import org.bson.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +30,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.concurrent.Future;
 
 /**
  *
@@ -41,7 +51,6 @@ public class TaskJobs {
     private final static String hms4MgdClearByInsertIsodate = "T03:00:00";
     /**
      * 更新用于插入数据的MongoClient所指向的集合
-     * @throws ParseException
      */
     @Scheduled(cron="0 0 0 1 * ?")
     public void dataMgdUpdate(){
@@ -64,7 +73,42 @@ public class TaskJobs {
         }catch (Exception e){
             logger.error("", e);
         }
+    }
+    /**
+     * 每个连接通道实时数据下行
+     * @throws ParseException
+     */
+//    @Scheduled(cron="0/5 * * * * ?")
+    public void sendRtData(){
+        try{
 
+            for(Iterator<Map.Entry<String, RuiliPcChannelAttr>> item = RuiliPcTcpHandler.getPcChMap().entrySet().iterator(); item.hasNext();) {
+                Map.Entry<String,RuiliPcChannelAttr> entry = item.next();
+                ChannelHandlerContext ctx = entry.getValue().getContext();
+                synchronized (ctx){
+//                    logger.info(String.format("ctx : %s ",ctx.channel().toString()));
+                    ctx.channel().flush();
+//                    ctx.writeAndFlush(Unpooled.copiedBuffer("sendRtData...",CharsetUtil.UTF_8));
+                }
+            }
+        }catch(Exception e){
+            logger.error("", e);
+        }
+    }
+//    @Scheduled(cron="0/1 * * * * ?")
+    public void writeRtData(){
+        try{
+
+            for(Iterator<Map.Entry<String, RuiliPcChannelAttr>> item = RuiliPcTcpHandler.getPcChMap().entrySet().iterator(); item.hasNext();) {
+                Map.Entry<String,RuiliPcChannelAttr> entry = item.next();
+                ChannelHandlerContext ctx = entry.getValue().getContext();
+                synchronized (ctx){
+                    ctx.channel().write(Unpooled.copiedBuffer("sendRtData...",CharsetUtil.UTF_8));
+                }
+            }
+        }catch(Exception e){
+            logger.error("", e);
+        }
     }
     /**
      * 基于从testName提取出来的isodate为基础，进行数据清除

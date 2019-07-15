@@ -74,14 +74,16 @@ public class RuiliPcTcpHandler extends ChannelInboundHandlerAdapter {
      */
     public static void send2Pc(ByteBuf temp) {   //这里需要是静态的，非静态依赖对象
         //NEED TEST
-        String testName = RuiliNodeUdpDataProcessor.getFrameHeadTestName(temp.copy());
+        String testName = RuiliNodeUdpDataProcessor.getFrameHeadTestName(temp);
         synchronized(RuiliPcTcpHandler.getPcChMap()) {
             for(Iterator<Map.Entry<String,RuiliPcChannelAttr>> item = RuiliPcTcpHandler.getPcChMap().entrySet().iterator(); item.hasNext();) {
                 Map.Entry<String,RuiliPcChannelAttr> entry = item.next();
                 //判断是否为实时获取数据的状态,且和测试名称对应
-                if((entry.getValue().getStatus()==RuiliPcChannelAttr.DATA_GET_STA) && entry.getValue().getTestName().equals(testName)) {
+                if((entry.getValue().getStatus()==RuiliPcChannelAttr.DATA_GET_STA) && ((entry.getValue().getTestName().equals(testName)) || (entry.getValue().getTestName().equals("all")))) {
                     //发送数据
-                    entry.getValue().getContext().writeAndFlush(temp.copy());
+                    if(entry.getValue().getContext().channel().isWritable()){
+                        entry.getValue().getContext().writeAndFlush(Unpooled.wrappedBuffer(temp));
+                    }
                 }
             }
         }
@@ -90,7 +92,7 @@ public class RuiliPcTcpHandler extends ChannelInboundHandlerAdapter {
      * 获取保存同服务器连接的PC的通道
      * @return {@link Map}
      */
-    private static synchronized Map<String,RuiliPcChannelAttr> getPcChMap(){
+    public static synchronized Map<String,RuiliPcChannelAttr> getPcChMap(){
         return RuiliPcTcpHandler.pcChMap;
     }
     /**
@@ -239,7 +241,7 @@ public class RuiliPcTcpHandler extends ChannelInboundHandlerAdapter {
         //如果这个channel没有到达水位的话，还可以写入
         //水位在active时设置
         if(ctx.channel().isActive()&&ctx.channel().isWritable()) {
-            ChannelFuture future = ctx.writeAndFlush(msg);
+            ChannelFuture future = ctx.channel().writeAndFlush(msg);
             //发送完毕会返回一个信息
             future.addListener(new ChannelFutureListener(){
                 @Override
@@ -303,7 +305,7 @@ public class RuiliPcTcpHandler extends ChannelInboundHandlerAdapter {
                     default:
                         break;
                 }
-            }else if(RuiliPcTcpHandler.pcChMap.get(ctx.channel().remoteAddress().toString()).getStatus().equals(RuiliPcChannelAttr.LOGINED_STA)) {//已经登录REQUEST_CONNECT_STA) {LOGINED_STA
+            }else if(RuiliPcTcpHandler.pcChMap.get(ctx.channel().remoteAddress().toString()).getStatus().equals(RuiliPcChannelAttr.REQUEST_CONNECT_STA)) {//已经登录REQUEST_CONNECT_STA) {LOGINED_STA
                 //TODO 将REQUEST_CONNECT_STA改回来
                 //判断cmd类型
                 switch(cmd) {
@@ -418,7 +420,7 @@ public class RuiliPcTcpHandler extends ChannelInboundHandlerAdapter {
                     //获取MongoDB中的文档信息，可以使用filter
                     //!!!!!只支持查询一次测试
                     case RuiliPcCmdAttr.MONGODB_FIND_DOCS:
-
+                        RuiliPcTcpHandler.pcChMap.get(ctx.channel().remoteAddress().toString()).allowSendDocs();
                         //filte
                         BasicDBObject filterDocs = new BasicDBObject();
                         //TODO  to test
@@ -464,24 +466,28 @@ public class RuiliPcTcpHandler extends ChannelInboundHandlerAdapter {
                                         projections.append(RuiliDatadbSegment.MONGODB_KEY_RAW_DATA, 1).append("_id", 0);
                                         FindIterable<Document> docIter = dataMgd.collection.find(filterDocs).projection(projections);
                                         docIter.forEach(document-> {
-                                                try {
-                                                    //没有超过水位
-                                                    if(!ctx.channel().isWritable()){
-                                                        ctx.flush();
-                                                    }
-                                                    ctx.write(Unpooled.copiedBuffer(RuiliPcCmdAttr.MONGODB_FIND_DOCS+RuiliPcCmdAttr.SEG_CMD_DONE_SIGNAL,CharsetUtil.UTF_8));//加入抬头
-                                                    Binary rawDataBin = (Binary)document.get(RuiliDatadbSegment.MONGODB_KEY_RAW_DATA);
-                                                    byte[] rawDataByte = rawDataBin.getData();
-                                                    ctx.write(Unpooled.wrappedBuffer(rawDataByte));//发给上位机原始数据
-                                                }catch(Exception e) {
-                                                    logger.error("",e);
-                                            }}, (result4SingleResultCallback, thread4SingleResultCallback) -> {//所有操作完成后的工作
-                                                if(colName.equals(yyyy_MM[1])){
-                                                    ctx.write(Unpooled.copiedBuffer(RuiliPcCmdAttr.MONGODB_FIND_DOCS+
-                                                            RuiliPcCmdAttr.SEG_CMD_DONE_SIGNAL+RuiliPcCmdAttr.DONE_SIGNAL_OVER,CharsetUtil.UTF_8));
+                                            if(!RuiliPcTcpHandler.pcChMap.get(ctx.channel().remoteAddress().toString()).isAllowSendDocs()){
+                                                return;
+                                            }
+                                            try {
+                                                //没有超过水位
+                                                if(!ctx.channel().isWritable()){
                                                     ctx.flush();
-                                                    logger.debug(RuiliPcCmdAttr.MONGODB_FIND_DOCS+RuiliPcCmdAttr.SEG_CMD_DONE_SIGNAL+RuiliPcCmdAttr.DONE_SIGNAL_OVER);
                                                 }
+                                                ctx.write(Unpooled.copiedBuffer(RuiliPcCmdAttr.MONGODB_FIND_DOCS+RuiliPcCmdAttr.SEG_CMD_DONE_SIGNAL,CharsetUtil.UTF_8));//加入抬头
+                                                Binary rawDataBin = (Binary)document.get(RuiliDatadbSegment.MONGODB_KEY_RAW_DATA);
+                                                byte[] rawDataByte = rawDataBin.getData();
+                                                ctx.write(Unpooled.wrappedBuffer(rawDataByte));//发给上位机原始数据
+                                            }catch(Exception e) {
+                                                logger.error("",e);
+                                        }}, (result4SingleResultCallback, thread4SingleResultCallback) -> {//所有操作完成后的工作
+//                                                if(colName.equals(yyyy_MM[1])){
+                                                ctx.write(Unpooled.copiedBuffer(RuiliPcCmdAttr.MONGODB_FIND_DOCS+
+                                                        RuiliPcCmdAttr.SEG_CMD_DONE_SIGNAL+RuiliPcCmdAttr.DONE_SIGNAL_OVER,CharsetUtil.UTF_8));
+                                                ctx.flush();
+                                                logger.debug(RuiliPcCmdAttr.MONGODB_FIND_DOCS+RuiliPcCmdAttr.SEG_CMD_DONE_SIGNAL+RuiliPcCmdAttr.DONE_SIGNAL_OVER);
+                                                RuiliPcTcpHandler.pcChMap.get(ctx.channel().remoteAddress().toString()).allowSendDocs();
+//                                                }
                                         });
 //                                    }
                                 } catch (ParseException e) {
@@ -514,6 +520,11 @@ public class RuiliPcTcpHandler extends ChannelInboundHandlerAdapter {
                         break;
                     case RuiliPcCmdAttr.MONGODB_CREATE_COL://创建collection
                         //TODO
+                        break;
+                    case RuiliPcCmdAttr.PC_WANT_STOP_GET_DOCS://创建collection
+                        RuiliPcTcpHandler.pcChMap.get(ctx.channel().remoteAddress().toString()).stopSendDocs();
+                        this.writeFlushFuture(ctx,RuiliPcCmdAttr.PC_WANT_STOP_GET_DOCS+
+                                RuiliPcCmdAttr.SEG_CMD_DONE_SIGNAL+RuiliPcCmdAttr.DONE_SIGNAL_OK);
                         break;
                     case RuiliPcCmdAttr.PC_WANT_GET_RTDATA://修改位GetRtData的状态
                         try {

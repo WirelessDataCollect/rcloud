@@ -9,8 +9,10 @@ public class RuiliPcCmdAttr {
     public final static String PC_WANT_LOGIN = "Login";//登录指令
     public final static String PC_WANT_GET_TEST_CONFIG = "GetTestConfig";//获取测试配置文件
     public final static String PC_WANT_GET_RTDATA = "GetRtdata";//获取实时数据，必须先login（进入信任区）
+    public final static String PC_WANT_STOP_GET_DOCS = "StopMongoFindDocs";//获取实时数据，必须先login（进入信任区）
     public final static String PC_STOP_GET_RTDATA = "StopGetRtdata";//停止获取实时数据
     public final static String MONGODB_CREATE_COL = "MongoCreateCol";//创建一个数据集合，每次实验都要创建
+
     //优先级低
     public final static String PC_WANT_DISCONNECT = "Disconnect";//断开连接
     public final static String HEART_BEAT_SIGNAL = "HeartBeat";//心跳包
