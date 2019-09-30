@@ -42,7 +42,8 @@ public class SimpleMgd {
         this.setColName(col);
         this.setIndexName(index);
         try {
-            mongoClient = MongoClients.create();//"mongodb://172.0.0.1"
+            //"mongodb://172.0.0.1"
+            mongoClient = MongoClients.create();
             mongoDatabase = mongoClient.getDatabase(this.dbName);
             collection = mongoDatabase.getCollection(this.colName);
             if(!this.getIndexName().equals("")) {
