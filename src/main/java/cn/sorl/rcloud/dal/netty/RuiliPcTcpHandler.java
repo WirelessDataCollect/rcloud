@@ -305,7 +305,7 @@ public class RuiliPcTcpHandler extends ChannelInboundHandlerAdapter {
                     default:
                         break;
                 }
-            }else if(RuiliPcTcpHandler.pcChMap.get(ctx.channel().remoteAddress().toString()).getStatus().equals(RuiliPcChannelAttr.REQUEST_CONNECT_STA)) {//已经登录REQUEST_CONNECT_STA) {LOGINED_STA
+            }else if(RuiliPcTcpHandler.pcChMap.get(ctx.channel().remoteAddress().toString()).getStatus().equals(RuiliPcChannelAttr.LOGINED_STA)) {//已经登录REQUEST_CONNECT_STA) {LOGINED_STA
                 //TODO 将REQUEST_CONNECT_STA改回来
                 //判断cmd类型
                 switch(cmd) {
@@ -434,6 +434,7 @@ public class RuiliPcTcpHandler extends ChannelInboundHandlerAdapter {
                                 }
                             }
                         }
+                        logger.info(filterDocs.toJson());
                         //获取数据所存在的集合
                         this.infoMgd.collection.find(filterDocs).first(new SingleResultCallback<Document>() {//所有操作完成后的工作
                             @Override
@@ -464,9 +465,10 @@ public class RuiliPcTcpHandler extends ChannelInboundHandlerAdapter {
                                         generalMgd.resetCol(colName);
                                         BasicDBObject projections = new BasicDBObject();
                                         projections.append(RuiliDatadbSegment.MONGODB_KEY_RAW_DATA, 1).append("_id", 0);
-                                        FindIterable<Document> docIter = dataMgd.collection.find(filterDocs).projection(projections);
+                                        FindIterable<Document> docIter = generalMgd.collection.find(filterDocs).projection(projections);
                                         docIter.forEach(document-> {
                                             if(!RuiliPcTcpHandler.pcChMap.get(ctx.channel().remoteAddress().toString()).isAllowSendDocs()){
+                                                logger.info("Not Allow Send Docs");
                                                 return;
                                             }
                                             try {
