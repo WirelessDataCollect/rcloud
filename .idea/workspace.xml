@@ -7,11 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92b41eaa-2d6e-4124-9480-08a6fb7b74af" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/log.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/rcloud_jar/rcloud.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/rcloud_jar/rcloud.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/docker/rcloud-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/docker/rcloud-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/dal/netty/RuiliPcTcpHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/dal/netty/RuiliPcTcpHandler.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -52,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/dal/netty/RuiliPcTcpHandler.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2559">
-              <caret line="442" column="69" lean-forward="true" selection-start-line="442" selection-start-column="69" selection-end-line="442" selection-end-column="69" />
+              <caret line="442" column="69" selection-start-line="442" selection-start-column="69" selection-end-line="442" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3683#3684#0" expanded="true" />
@@ -71,28 +67,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/dal/netty/RuiliPcCmdAttr.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="65" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="65" />
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="593">
+                <caret line="234" column="61" selection-start-line="234" selection-start-column="61" selection-end-line="234" selection-end-column="61" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/biz/threads/TaskJobs.java">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3345">
-              <caret line="255" column="37" selection-start-line="255" selection-start-column="37" selection-end-line="255" selection-end-column="37" />
+            <state relative-caret-position="120">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/common/security/SimpleSaltMd5.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/docker/Dockerfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="60" column="9" selection-start-line="60" selection-start-column="9" selection-end-line="60" selection-end-column="9" />
+            <state relative-caret-position="195">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
             </state>
           </provider>
         </entry>
@@ -142,7 +141,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/biz/beanconfig/MgdConfig.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
-              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -404,6 +403,18 @@
               <item name="dal" type="462c0819:PsiDirectoryNode" />
               <item name="netty" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="rcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -430,21 +441,21 @@
     <property name="settings.editor.selected.configurable" value="Docker" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Softcodes\Java\rcloud\src\main\java\META-INF" />
+      <recent name="F:\Softcodes\Java\rcloud\src\main\docker" />
+      <recent name="F:\Softcodes\Java\rcloud" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="cn.sorl.rcloud.web" />
+      <recent name="cn.sorl.rcloud.dal.mongodb.mgdobj" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/docker" />
       <recent name="F:\Softcodes\Java\rcloud\src\main\resources" />
       <recent name="F:\Softcodes\Java\rcloud\src\main\java\cn\sorl\rcloud\biz" />
       <recent name="F:\Softcodes\Java\rcloud\src\main\java\cn\sorl\rcloud\dal\netty" />
       <recent name="F:\Softcodes\Java\rcloud\src\main\java\cn\sorl\rcloud\dal\mongodb\mgdpo" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="cn.sorl.rcloud.web" />
-      <recent name="cn.sorl.rcloud.dal.mongodb.mgdobj" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\Softcodes\Java\rcloud\src\main\java\META-INF" />
-      <recent name="F:\Softcodes\Java\rcloud\src\main\docker" />
-      <recent name="F:\Softcodes\Java\rcloud" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -459,7 +470,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.BootApplication">
+  <component name="RunManager" selected="Docker.docker/Dockerfile">
     <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
@@ -608,12 +619,12 @@
       <workItem from="1569973770566" duration="427000" />
       <workItem from="1570799710998" duration="2362000" />
       <workItem from="1570802378930" duration="5542000" />
-      <workItem from="1570809992295" duration="330000" />
+      <workItem from="1570809992295" duration="1256000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180533000" />
+    <option name="totallyTimeSpent" value="181459000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -626,9 +637,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="55" y="-4" width="1865" height="1084" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18416713" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18416713" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -645,7 +655,7 @@
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32721713" />
       <window_info anchor="bottom" id="Spring" order="8" weight="0.43425077" />
-      <window_info anchor="bottom" id="Docker" order="9" sideWeight="0.4402985" weight="0.21406728" />
+      <window_info active="true" anchor="bottom" id="Docker" order="9" sideWeight="0.4402985" visible="true" weight="0.7268094" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.52869844" side_tool="true" weight="0.20591234" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Terminal" order="12" weight="0.3119266" />
@@ -1036,16 +1046,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="3510">
-            <caret line="234" column="61" selection-start-line="234" selection-start-column="61" selection-end-line="234" selection-end-column="61" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/biz/threads/RuiliPcHandlerTask.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
@@ -1067,13 +1067,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="113" column="11" selection-start-line="113" selection-start-column="11" selection-end-line="113" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1108,13 +1101,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/docker/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
@@ -1186,7 +1172,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/biz/beanconfig/MgdConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1239,7 +1225,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/dal/netty/RuiliPcTcpHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2559">
-          <caret line="442" column="69" lean-forward="true" selection-start-line="442" selection-start-column="69" selection-end-line="442" selection-end-column="69" />
+          <caret line="442" column="69" selection-start-line="442" selection-start-column="69" selection-end-line="442" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3683#3684#0" expanded="true" />
@@ -1249,6 +1235,30 @@
             <element signature="e#10334#10335#0" expanded="true" />
             <element signature="e#10397#10398#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="593">
+            <caret line="234" column="61" selection-start-line="234" selection-start-column="61" selection-end-line="234" selection-end-column="61" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/docker/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>

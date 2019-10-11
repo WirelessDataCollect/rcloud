@@ -10,8 +10,6 @@
 
 4.上位机连接服务器，通过命令调取测试名称、测试数据等
 
-*5.通过web查看某些特性*
-
 ## 运行流程
 ### 上位机和服务器的连接
 1、上位机连接服务器
@@ -58,19 +56,13 @@
 不信任则忽略
 
 ## 介绍
-**已实现**
-
-### 前端
-* 用户登录
-
-### 后端
 服务器主要包括三个方面的功能——从设备端接收原始数据并进行解析；将（实时或者历史）原数据转发给PC上位机；将解析后的数据和原数据存储在服务器的MongoDB数据库中。
 
 本服务器基于Netty和Spring框架。
 
 * 数据接收
 
-设备通过TCP或者UDP（可手动设置）连接服务器，并传输数据到服务器。
+设备通过UDP，传输数据到服务器。
 
 * 数据转发
 
@@ -226,7 +218,7 @@ MongoFindDocs+test:test1_2019-02-02T13:50:23
 
 |上位机命令|信息|服务器返回|说明|
 |-|-|-|-|
-|Login|登录用户名;测试名称`\SPL`|Login:OK`\SDSPL`|登录用户|
+|Login|登录用户名;MD5加密数据`\SPL`|Login:OK`\SDSPL`|登录用户|
 |StartTest|测试名称;配置文件长度;配置文件`\SPL`|StartTest:OK`\SDSPL`或者StartTest:ERROR`\SDSPL`|开始测试，保存配置文件|
 |GetRtdata|测试名称`\SPL`或者all`\SPL`|GetRtdata:OK`\SDSPL`|获取实时数据,改状态下不能进行其他操作，需要先关闭GetRtdata才能进行其他操作|
 |StopGetRtdata|none`\SPL`|StopGetRtdata:OK`\SDSPL`|停止获取实时数据|
@@ -265,29 +257,6 @@ db.COL.dorp()
 db.COL.find().pretty()
 
 ```
-
-# 下一步改进
-1、ngnix反向代理
-
-2、HBase数据库存储数据
-
-存储之前进行数据的解析；
-
-ADC和CAN是异构数据，但是存储在HBase中的存储量小
-
-3、MongoDB存储实验和用户信息
-
-实验信息表示，实验名称、开始时间、实验配置信息等
-
-用户信息表示，管理员的名称、密码，可以通过登录实现查看数据
-
-4、CMD的解析
-
-CMD解析可以使用Netty自带的解码器(DelimiterBasedFrameDecoder)实现。
-
-5、数据库集群和事务
-
-实现MongoDB的集群，并实现事务（事务基于集群模式或者分片模式）。
 
 # 参考
 
