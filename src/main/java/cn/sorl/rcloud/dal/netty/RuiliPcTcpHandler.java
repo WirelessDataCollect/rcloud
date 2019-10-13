@@ -480,12 +480,15 @@ public class RuiliPcTcpHandler extends ChannelInboundHandlerAdapter {
                                                 Binary rawDataBin = (Binary)document.get(RuiliDatadbSegment.MONGODB_KEY_RAW_DATA);
                                                 byte[] rawDataByte = rawDataBin.getData();
                                                 ctx.write(Unpooled.wrappedBuffer(rawDataByte));//发给上位机原始数据
+                                                ctx.write(Unpooled.copiedBuffer(RuiliPcCmdAttr.SEG_TOW_PACK, CharsetUtil.UTF_8));
                                             }catch(Exception e) {
                                                 logger.error("",e);
                                         }}, (result4SingleResultCallback, thread4SingleResultCallback) -> {//所有操作完成后的工作
 //                                                if(colName.equals(yyyy_MM[1])){
                                                 ctx.write(Unpooled.copiedBuffer(RuiliPcCmdAttr.MONGODB_FIND_DOCS+
-                                                        RuiliPcCmdAttr.SEG_CMD_DONE_SIGNAL+RuiliPcCmdAttr.DONE_SIGNAL_OVER,CharsetUtil.UTF_8));
+                                                        RuiliPcCmdAttr.SEG_CMD_DONE_SIGNAL +
+                                                        RuiliPcCmdAttr.DONE_SIGNAL_OVER +
+                                                        RuiliPcCmdAttr.SEG_TOW_PACK,CharsetUtil.UTF_8));
                                                 ctx.flush();
                                                 logger.debug(RuiliPcCmdAttr.MONGODB_FIND_DOCS+RuiliPcCmdAttr.SEG_CMD_DONE_SIGNAL+RuiliPcCmdAttr.DONE_SIGNAL_OVER);
                                                 RuiliPcTcpHandler.pcChMap.get(ctx.channel().remoteAddress().toString()).allowSendDocs();
