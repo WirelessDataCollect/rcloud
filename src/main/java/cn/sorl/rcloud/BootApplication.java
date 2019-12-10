@@ -1,10 +1,7 @@
 package cn.sorl.rcloud;
 
-import cn.sorl.rcloud.biz.pool.AsyncPoolIf;
-import cn.sorl.rcloud.biz.pool.AsyncPoolImpl;
 import cn.sorl.rcloud.biz.threads.RuiliNodeHandlerTask;
 import cn.sorl.rcloud.biz.threads.RuiliPcHandlerTask;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableAsync;
@@ -20,6 +17,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  */
 public class BootApplication {
     public static void main(String[] args){
+
         SpringApplication.run(BootApplication.class, args);
         RuiliNodeHandlerTask ruiliNodeHandlerTask = new RuiliNodeHandlerTask(5001, "Node-Thread");
         RuiliPcHandlerTask ruiliPcHandlerTask = new RuiliPcHandlerTask(8089, "Pc-Thread", "\t");
