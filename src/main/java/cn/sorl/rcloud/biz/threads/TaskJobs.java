@@ -55,7 +55,7 @@ public class TaskJobs {
     private final static String hms4MgdClearByIsodate = "T04:00:00";
     //配置任务的执行时间，可以配置多个(根据插入时间删除)
     private final static String hms4MgdClearByInsertIsodate = "T03:00:00";
-    PropertiesUtil propertiesUtil = new PropertiesUtil("/home/scc/configuration/rcloud_configuration.properties");
+    PropertiesUtil propertiesUtil = new PropertiesUtil("/etc/rcloud_configuration.properties");
     ShellCallUtil shellCallUtil = new ShellCallUtil(propertiesUtil);
 
     /**
@@ -227,6 +227,7 @@ public class TaskJobs {
     /**
      * 检查磁盘空间的大小，如果过小则发送邮件
      */
+//    @Scheduled(cron="0/10 * * * * *")  // 测试用，每10秒检查一次
     @Scheduled(cron="0 00 02 * * MON-FRI")  //每周周一到五凌晨2点
     public void checkDiskSpace() {
         try {
