@@ -28,6 +28,7 @@ public class PropertiesUtil {
      */
     public PropertiesUtil(String path){
             this.updateProps(path);
+            logger.info(props.toString());
     }
 
     /**

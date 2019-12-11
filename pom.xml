@@ -139,7 +139,9 @@
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
+                            <!-- jar包所在路径-->
                             <directory>${project.build.directory}</directory>
+                            <!--jar包名称-->
                             <include>${project.build.finalName}.jar</include>
                         </resource>
                     </resources>

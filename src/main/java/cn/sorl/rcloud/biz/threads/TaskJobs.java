@@ -131,6 +131,7 @@ public class TaskJobs {
 //	@Scheduled(cron="0 0 4 * * ?")  //凌晨4点执行数据库清空指令（DAYS_BEFORE_TODAY天之前的数据）
     public void mgdClearByIsodate() {
         try {
+
             logger.info("mgdClearByInsertIsodate Start Clearing N-day-before datas and configurations");
             SimpleMgd generalMgd = BeanContext.context.getBean("generalMgd", SimpleMgd.class);
             SimpleMgd infoMgd = BeanContext.context.getBean("infoMgd", SimpleMgd.class);
@@ -260,10 +261,12 @@ public class TaskJobs {
     /**
      * 每10min检查一次的配置，MongoDB数据库的地址是否改变了
      */
-    @Scheduled(cron="0 0/10 * * * ?")
+//    @Scheduled(cron="0 0/10 * * * ?")
+    @Scheduled(cron="0/10 * * * * ?")
     public void checkProperties10Min() {
         try {
             propertiesUtil.updateProps();
+            logger.info(propertiesUtil.getProps().toString());
             SimpleMgd adminMgd = BeanContext.context.getBean("adminMgd", SimpleMgd.class);
             String adminMgdAddr = adminMgd.getMgdAddr();
             // 如果发现了mgd地址该了
