@@ -2,12 +2,16 @@ package cn.sorl.rcloud.biz.threads;
 
 import cn.sorl.rcloud.biz.beanconfig.BeanContext;
 import cn.sorl.rcloud.common.time.TimeUtils;
+import cn.sorl.rcloud.common.util.PropertiesUtil;
+import cn.sorl.rcloud.common.util.PropertyLabel;
+import cn.sorl.rcloud.common.util.ShellCallUtil;
 import cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd;
 import cn.sorl.rcloud.dal.mongodb.mgdpo.RuiliDatadbSegment;
 import cn.sorl.rcloud.dal.mongodb.mgdpo.RuiliInfodbSegment;
 import cn.sorl.rcloud.dal.netty.RuiliPcChannelAttr;
 import cn.sorl.rcloud.dal.netty.RuiliPcCmdAttr;
 import cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler;
+import cn.sorl.rcloud.dal.network.EmailSender;
 import com.mongodb.BasicDBObject;
 import com.mongodb.Block;
 import com.mongodb.async.SingleResultCallback;
@@ -20,9 +24,11 @@ import io.netty.buffer.Unpooled;
 import io.netty.buffer.UnpooledUnsafeDirectByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.util.CharsetUtil;
+import jdk.nashorn.tools.Shell;
 import org.bson.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -49,6 +55,9 @@ public class TaskJobs {
     private final static String hms4MgdClearByIsodate = "T04:00:00";
     //配置任务的执行时间，可以配置多个(根据插入时间删除)
     private final static String hms4MgdClearByInsertIsodate = "T03:00:00";
+    PropertiesUtil propertiesUtil = new PropertiesUtil("/home/scc/configuration/rcloud_configuration.properties");
+    ShellCallUtil shellCallUtil = new ShellCallUtil(propertiesUtil);
+
     /**
      * 更新用于插入数据的MongoClient所指向的集合
      */
@@ -215,8 +224,37 @@ public class TaskJobs {
         }
     }
 
-
-
+    /**
+     * 检查磁盘空间的大小，如果过小则发送邮件
+     */
+    @Scheduled(cron="0 00 02 * * MON-FRI")  //每周周一到五凌晨2点
+    public void checkDiskSpace() {
+        try {
+            propertiesUtil.updateProps();
+            String script = shellCallUtil.getProperty(PropertyLabel.DISK_SPACE_SCRIPT_KEY);
+            String args = shellCallUtil.getProperty(PropertyLabel.DISK_SPACE_ARGS_KEY);
+            String workspace = shellCallUtil.getProperty(PropertyLabel.DISK_SPACE_WORKSPACE_KEY);
+            String freeSpace = shellCallUtil.callShell(script,args,workspace);
+            logger.info("Check Disk Space Free: DIR = " + workspace+"\t" + freeSpace);
+            Integer freeSpaceInt = Integer.parseInt(freeSpace.split("G")[0]);
+            // 开启邮件提醒
+            if (freeSpaceInt < Integer.parseInt(propertiesUtil.readValue(PropertyLabel.DISK_SPACE_MINIMUM_G_KEY))) {
+                logger.warn("R-CLOUD STORAGE NOT ENOUGH");
+                if (propertiesUtil.readValue(PropertyLabel.MAIL_ENABLE_KEY).equals(PropertyLabel.MAIL_ENABLE_YES)) {
+                    String subject = "R-CLOUD 服务器空间不足";
+                    String content = "<br>剩余存储空间 ：" + freeSpace+ "<br><br>-----<br>瑞立集团网络技术中心";
+                    // 逐个发送给用户
+                    EmailSender emailSender = new EmailSender(propertiesUtil);
+                    for (String mailAdr : propertiesUtil.readValue(PropertyLabel.MAIL_LIST_KEY).split(PropertyLabel.MAIL_LIST_SPLIT)) {
+                        emailSender.sendMail(mailAdr, subject, content);
+                        logger.info("Email Send to : " + mailAdr);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            logger.error("",e);
+        }
+    }
 
 
     /**

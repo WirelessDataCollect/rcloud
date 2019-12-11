@@ -2,6 +2,7 @@ package cn.sorl.rcloud;
 
 import cn.sorl.rcloud.biz.threads.RuiliNodeHandlerTask;
 import cn.sorl.rcloud.biz.threads.RuiliPcHandlerTask;
+import cn.sorl.rcloud.common.util.ShellCallUtil;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableAsync;

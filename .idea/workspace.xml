@@ -8,7 +8,11 @@
   <component name="ChangeListManager">
     <list default="true" id="92b41eaa-2d6e-4124-9480-08a6fb7b74af" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/log.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/log.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/BootApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/BootApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/biz/threads/TaskJobs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/biz/threads/TaskJobs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/dal/network/EmailSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/dal/network/EmailSender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/web/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/web/controller/Controller.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -38,10 +42,25 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/biz/beanconfig/MgdConfig.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/common/util/PropertiesUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
+            <state relative-caret-position="675">
+              <caret line="69" column="21" selection-start-line="69" selection-start-column="21" selection-end-line="69" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#685#686#0" expanded="true" />
+                <element signature="e#727#728#0" expanded="true" />
+                <element signature="e#1473#1474#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/dal/network/EmailSender.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="53" column="39" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -50,24 +69,67 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/dal/network/EmailSender.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/biz/threads/TaskJobs.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="21" lean-forward="true" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
+            <state relative-caret-position="255">
+              <caret line="229" column="51" selection-start-line="229" selection-start-column="51" selection-end-line="229" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.1.3.RELEASE/spring-context-5.1.3.RELEASE-sources.jar!/org/springframework/scheduling/annotation/Scheduled.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="219">
+              <caret line="75" column="7" lean-forward="true" selection-start-line="75" selection-start-column="7" selection-end-line="75" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/common/util/PropertyLabel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/common/util/ShellCallUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-180">
+              <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1544#1919#0" expanded="true" />
-                <element signature="e#1918#1919#0" expanded="true" />
+                <element signature="e#633#634#0" expanded="true" />
+                <element signature="e#679#680#0" expanded="true" />
+                <element signature="e#1809#1810#0" expanded="true" />
+                <element signature="e#1853#1854#0" expanded="true" />
+                <element signature="e#1921#1922#0" expanded="true" />
+                <element signature="e#1965#1966#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+        <entry file="jar:///usr/lib/jvm/jdk1.8.0_211/src.zip!/java/io/BufferedReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
-              <caret line="99" column="21" selection-start-line="99" selection-start-column="21" selection-end-line="99" selection-end-column="21" />
+            <state relative-caret-position="386">
+              <caret line="387" column="18" selection-start-line="387" selection-start-column="18" selection-end-line="387" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/BootApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -89,6 +151,7 @@
       <find>ReferenceCountUtil</find>
       <find>writeAndFlush</find>
       <find>login</find>
+      <find>diskspace.minimumG</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/target</dir>
@@ -107,7 +170,6 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/biz/beanconfig/BeanContext.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/dal/netty/RuiliNodeUdpDataProcessor.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/biz/threads/AsyncExcutorCommon.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/biz/threads/RuiliPcHandlerTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/biz/threads/RuiliNodeHandlerTask.java" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j2.xml" />
@@ -124,9 +186,7 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/web/controller/NodeDataController.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/dal/mongodb/mgdpo/RuiliAdmindbSegment.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/biz/pool/AsyncPoolImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/web/controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/dal/netty/RuiliNodeUdpHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/biz/threads/TaskJobs.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/dal/netty/RuiliPcCmdAttr.java" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/dal/netty/RuiliPcChannelAttr.java" />
@@ -135,9 +195,19 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/dal/mongodb/mgdobj/SimpleMgd.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/dal/netty/RuiliPcTcpHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/BootApplication.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/common/util.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/dal/util/ShellCallUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/web/controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/biz/threads/ShellCallUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/biz/threads/RuiliPcHandlerTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/BootApplication.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/common/util/ShellCallUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/common/util/PropertyKey.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/common/util/PropertiesUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/common/util/PropertyLabel.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/dal/network/EmailSender.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/biz/threads/TaskJobs.java" />
       </list>
     </option>
   </component>
@@ -195,7 +265,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -203,6 +272,11 @@
             <path>
               <item name="rcloud" type="b2602c69:ProjectViewProjectNode" />
               <item name="rcloud" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="shell" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="rcloud" type="b2602c69:ProjectViewProjectNode" />
@@ -246,6 +320,45 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="rcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="biz" type="462c0819:PsiDirectoryNode" />
+              <item name="threads" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="rcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="rcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="time" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="rcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="rcloud" type="462c0819:PsiDirectoryNode" />
               <item name="dal" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -258,10 +371,27 @@
               <item name="dal" type="462c0819:PsiDirectoryNode" />
               <item name="network" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="rcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="rcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="CatdeaLogs" />
     </panes>
   </component>
@@ -281,24 +411,25 @@
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.26697353" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="configurable.stylesheets" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Softcodes\Java\rcloud\src\main\java\META-INF" />
+      <recent name="F:\Softcodes\Java\rcloud\src\main\docker" />
+      <recent name="F:\Softcodes\Java\rcloud" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="cn.sorl.rcloud.web" />
+      <recent name="cn.sorl.rcloud.dal.mongodb.mgdobj" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/docker" />
       <recent name="F:\Softcodes\Java\rcloud\src\main\resources" />
       <recent name="F:\Softcodes\Java\rcloud\src\main\java\cn\sorl\rcloud\biz" />
       <recent name="F:\Softcodes\Java\rcloud\src\main\java\cn\sorl\rcloud\dal\netty" />
       <recent name="F:\Softcodes\Java\rcloud\src\main\java\cn\sorl\rcloud\dal\mongodb\mgdpo" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="cn.sorl.rcloud.web" />
-      <recent name="cn.sorl.rcloud.dal.mongodb.mgdobj" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\Softcodes\Java\rcloud\src\main\java\META-INF" />
-      <recent name="F:\Softcodes\Java\rcloud\src\main\docker" />
-      <recent name="F:\Softcodes\Java\rcloud" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -313,7 +444,33 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Docker.docker/Dockerfile">
+  <component name="RunManager" selected="Spring Boot.BootApplication">
+    <configuration name="PropertiesUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.sorl.rcloud.common.util.PropertiesUtil" />
+      <module name="rcloud" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.sorl.rcloud.common.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShellCallUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.sorl.rcloud.common.util.ShellCallUtil" />
+      <module name="rcloud" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.sorl.rcloud.common.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
@@ -406,6 +563,8 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.ShellCallUtil" />
+      <item itemvalue="Application.PropertiesUtil" />
       <item itemvalue="Docker.docker/Dockerfile" />
       <item itemvalue="Docker.Docker Image" />
       <item itemvalue="Spring Boot.BootApplication" />
@@ -413,12 +572,15 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.BootApplication" />
-        <item itemvalue="Docker.Docker Image" />
-        <item itemvalue="Docker.Docker Image" />
+        <item itemvalue="Application.PropertiesUtil" />
+        <item itemvalue="Application.ShellCallUtil" />
         <item itemvalue="Docker.Docker Image" />
         <item itemvalue="Docker.Docker Image" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SpringBeansView">
+    <option name="beanDetailsProportion" value="0.3" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -469,12 +631,13 @@
       <workItem from="1573177011109" duration="632000" />
       <workItem from="1573270461938" duration="636000" />
       <workItem from="1573526266733" duration="456000" />
-      <workItem from="1575981885181" duration="1704000" />
+      <workItem from="1575981885181" duration="10788000" />
+      <workItem from="1576034204577" duration="9527000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="188202000" />
+    <option name="totallyTimeSpent" value="206813000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -489,7 +652,7 @@
     <frame x="55" y="-4" width="1865" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20615722" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17921935" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -497,19 +660,19 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Web" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="0" weight="0.42273533" />
+      <window_info anchor="bottom" id="Messages" order="0" weight="0.42201835" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" visible="true" weight="0.23343527" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.47130153" weight="0.29867482" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.47130153" visible="true" weight="0.2293578" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.30784914" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32721713" />
-      <window_info anchor="bottom" id="Spring" order="8" weight="0.43425077" />
+      <window_info anchor="bottom" id="Spring" order="8" weight="0.24974516" />
       <window_info anchor="bottom" id="Docker" order="9" sideWeight="0.4402985" weight="0.41896024" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.52869844" side_tool="true" weight="0.20591234" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info anchor="bottom" id="Terminal" order="12" visible="true" weight="0.14780836" />
+      <window_info anchor="bottom" id="Terminal" order="12" weight="0.24668705" />
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.32925585" />
       <window_info anchor="bottom" id="Java Enterprise" order="14" weight="0.2711519" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -533,31 +696,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.1.3.RELEASE/spring-context-5.1.3.RELEASE.jar!/org/springframework/scheduling/annotation/Async.class" />
-    <entry file="file://$PROJECT_DIR$/logs/log.log" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mongodb/mongodb-driver-async/3.8.1/mongodb-driver-async-3.8.1.jar!/com/mongodb/async/client/MongoIterable.class" />
-    <entry file="jar://D:/Softwares/Java/JavaSE_Dev_Kit_8_Update/src.zip!/java/lang/Object.java" />
-    <entry file="jar://D:/Softwares/Java/JavaSE_Dev_Kit_8_Update/src.zip!/java/util/concurrent/Future.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/biz/pool/AsyncConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j2.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.1.3.RELEASE/spring-context-5.1.3.RELEASE.jar!/org/springframework/scheduling/annotation/AsyncResult.class" />
-    <entry file="jar://D:/Softwares/Java/JavaSE_Dev_Kit_8_Update/src.zip!/java/lang/String.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mongodb/mongo-java-driver/3.8.1/mongo-java-driver-3.8.1.jar!/org/bson/Document.class" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.1.3.RELEASE/spring-core-5.1.3.RELEASE.jar!/org/springframework/util/concurrent/ListenableFuture.class" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/mongodb/mongo-java-driver/3.8.1/mongo-java-driver-3.8.1.jar!/com/mongodb/async/SingleResultCallback.class" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/mongodb/mongo-java-driver/3.8.1/mongo-java-driver-3.8.1.jar!/com/mongodb/client/result/DeleteResult.class" />
@@ -595,16 +733,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/biz/threads/RuiliPcHandlerTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="105" column="12" selection-start-line="105" selection-start-column="12" selection-end-line="105" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/biz/pool/AsyncPoolIf.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -636,23 +764,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/web/controller/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/dal/netty/NettyPackCountTask.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -660,13 +771,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/common/security/SimpleSaltMd5.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="60" column="9" selection-start-line="60" selection-start-column="9" selection-end-line="60" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -781,30 +885,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shell/disk_space_left.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="674">
-          <caret line="76" column="18" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/BootApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/biz/threads/TaskJobs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="255" column="37" selection-start-line="255" selection-start-column="37" selection-end-line="255" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/dal/mongodb/mgdobj/SimpleMgd.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2129">
@@ -829,13 +909,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/dal/network.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/dal/network.java" />
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+        <state relative-caret-position="514">
+          <caret line="99" column="21" selection-start-line="99" selection-start-column="21" selection-end-line="99" selection-end-column="21" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/common/util.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/biz/beanconfig/MgdConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -846,22 +928,146 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="jar:///usr/lib/jvm/jdk1.8.0_211/src.zip!/java/lang/ClassLoader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="99" column="21" selection-start-line="99" selection-start-column="21" selection-end-line="99" selection-end-column="21" />
+        <state relative-caret-position="18420">
+          <caret line="1305" column="23" selection-start-line="1305" selection-start-column="23" selection-end-line="1305" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" selection-start-line="18" selection-end-line="18" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk1.8.0_211/src.zip!/java/lang/Runtime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6180">
+          <caret line="440" column="18" selection-start-line="440" selection-start-column="11" selection-end-line="440" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/common/security/SimpleSaltMd5.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/web/controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/biz/pool/AsyncConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/BootApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shell/disk_space_left.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="543">
+          <caret line="76" column="18" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk1.8.0_211/src.zip!/java/io/BufferedReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="387" column="18" selection-start-line="387" selection-start-column="18" selection-end-line="387" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/biz/threads/RuiliPcHandlerTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="49" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk1.8.0_211/src.zip!/java/util/Properties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="967" column="18" selection-start-line="967" selection-start-column="18" selection-end-line="967" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/common/util/ShellCallUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180">
+          <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#633#634#0" expanded="true" />
+            <element signature="e#679#680#0" expanded="true" />
+            <element signature="e#1809#1810#0" expanded="true" />
+            <element signature="e#1853#1854#0" expanded="true" />
+            <element signature="e#1921#1922#0" expanded="true" />
+            <element signature="e#1965#1966#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/common/util/PropertiesUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="69" column="21" selection-start-line="69" selection-start-column="21" selection-end-line="69" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#685#686#0" expanded="true" />
+            <element signature="e#727#728#0" expanded="true" />
+            <element signature="e#1473#1474#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/common/util/PropertyLabel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/dal/network/EmailSender.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="21" lean-forward="true" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
+        <state relative-caret-position="119">
+          <caret line="53" column="39" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1544#1919#0" expanded="true" />
-            <element signature="e#1918#1919#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.1.3.RELEASE/spring-context-5.1.3.RELEASE-sources.jar!/org/springframework/scheduling/annotation/Scheduled.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="75" column="7" lean-forward="true" selection-start-line="75" selection-start-column="7" selection-end-line="75" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/sorl/rcloud/biz/threads/TaskJobs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="229" column="51" selection-start-line="229" selection-start-column="51" selection-end-line="229" selection-end-column="51" />
         </state>
       </provider>
     </entry>
