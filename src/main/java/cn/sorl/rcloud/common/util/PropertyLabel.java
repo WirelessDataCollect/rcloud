@@ -6,6 +6,8 @@ package cn.sorl.rcloud.common.util;
  * @date 2019-12-11
  */
 public class PropertyLabel {
+    public static final String PROPERTIES_FILE_ADDR = "/etc/rcloud_configuration.properties";
+
     public static final String MAIL_ENABLE_KEY = "mail.enable";
     public static final String MAIL_ENABLE_YES = "yes";
     public static final String MAIL_ENABLE_NO = "no";
@@ -22,6 +24,6 @@ public class PropertyLabel {
     public static final String DISK_SPACE_ARGS_KEY = "diskspace.args";
     public static final String DISK_SPACE_WORKSPACE_KEY = "diskspace.workspace";
 
-
+    public static final String SQL_MONGODB_ADDR_KEY = "sql.mongodb.addr";
 
 }

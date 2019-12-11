@@ -1,5 +1,8 @@
 package cn.sorl.rcloud.dal.mongodb.mgdobj;
 
+import cn.sorl.rcloud.common.util.PropertiesUtil;
+
+import cn.sorl.rcloud.common.util.PropertyLabel;
 import com.mongodb.MongoException;
 import com.mongodb.async.SingleResultCallback;
 import com.mongodb.async.client.*;
@@ -27,6 +30,8 @@ public class SimpleMgd {
     //索引
     private String indexName = "";
 
+    private String mgdAddr = "";
+
     public int testFlag = 0;
 
     private static final Logger logger = LoggerFactory.getLogger(SimpleMgd.class);
@@ -41,23 +46,8 @@ public class SimpleMgd {
         this.setDbName(db);
         this.setColName(col);
         this.setIndexName(index);
-        try {
-            //"mongodb://172.0.0.1"
-            mongoClient = MongoClients.create();
-            mongoDatabase = mongoClient.getDatabase(this.dbName);
-            collection = mongoDatabase.getCollection(this.colName);
-            if(!this.getIndexName().equals("")) {
-                collection.createIndex(Indexes.descending(this.getIndexName()), new SingleResultCallback<String>() {
-                    @Override
-                    public void onResult(final String result, final Throwable t) {
-                        logger.info(String.format("db.col create index by \"%s\"(indexName_-1)", result));
-                    }
-                });
-            }
-            logger.info(String.format("Connected to db.col(%s.%s) successfully", this.dbName,this.colName));
-        }catch(Exception e) {
-            logger.error("MongoDB init unsuccessfully!",e);
-        }
+        // 链接到mongodb
+        conn2Mgd();
     }
     /**
      * 获取mongodb数据库的client
@@ -253,5 +243,36 @@ public class SimpleMgd {
      */
     public void destroy() {
         mongoClient.close();
+    }
+
+    /**
+     * 获取mongodb的地址
+     * @return
+     */
+    public String getMgdAddr() {
+        return mgdAddr;
+    }
+
+    /**
+     * 连接到mgd
+     */
+    public void conn2Mgd () {
+        try {
+            mgdAddr = new PropertiesUtil(PropertyLabel.PROPERTIES_FILE_ADDR).readValue(PropertyLabel.SQL_MONGODB_ADDR_KEY);
+            mongoClient = MongoClients.create("mongodb://"+mgdAddr);
+            mongoDatabase = mongoClient.getDatabase(this.dbName);
+            collection = mongoDatabase.getCollection(this.colName);
+            if(!this.getIndexName().equals("")) {
+                collection.createIndex(Indexes.descending(this.getIndexName()), new SingleResultCallback<String>() {
+                    @Override
+                    public void onResult(final String result, final Throwable t) {
+                        logger.info(String.format("db.col create index by \"%s\"(indexName_-1)", result));
+                    }
+                });
+            }
+            logger.info(String.format("Connected to db.col(%s.%s) successfully", this.dbName,this.colName));
+        }catch(Exception e) {
+            logger.error("MongoDB init unsuccessfully!",e);
+        }
     }
 }

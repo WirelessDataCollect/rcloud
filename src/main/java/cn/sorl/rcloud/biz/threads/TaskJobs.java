@@ -55,7 +55,7 @@ public class TaskJobs {
     private final static String hms4MgdClearByIsodate = "T04:00:00";
     //配置任务的执行时间，可以配置多个(根据插入时间删除)
     private final static String hms4MgdClearByInsertIsodate = "T03:00:00";
-    PropertiesUtil propertiesUtil = new PropertiesUtil("/etc/rcloud_configuration.properties");
+    PropertiesUtil propertiesUtil = new PropertiesUtil(PropertyLabel.PROPERTIES_FILE_ADDR);
     ShellCallUtil shellCallUtil = new ShellCallUtil(propertiesUtil);
 
     /**
@@ -257,6 +257,48 @@ public class TaskJobs {
         }
     }
 
+    /**
+     * 每10min检查一次的配置，MongoDB数据库的地址是否改变了
+     */
+    @Scheduled(cron="0 0/10 * * * ?")
+    public void checkProperties10Min() {
+        try {
+            propertiesUtil.updateProps();
+            SimpleMgd adminMgd = BeanContext.context.getBean("adminMgd", SimpleMgd.class);
+            String adminMgdAddr = adminMgd.getMgdAddr();
+            // 如果发现了mgd地址该了
+            if (!propertiesUtil.getProps().get(PropertyLabel.SQL_MONGODB_ADDR_KEY).equals(adminMgdAddr)) {
+                logger.info("MongoDB Addr Changed!Starting Change Mongo Client Connection...");
+                // 重新建立连接
+                adminMgd.conn2Mgd();
+
+                SimpleMgd infoMgd = BeanContext.context.getBean("infoMgd", SimpleMgd.class);
+                String infoMgdAddr = infoMgd.getMgdAddr();
+                if (!propertiesUtil.getProps().get(PropertyLabel.SQL_MONGODB_ADDR_KEY).equals(infoMgdAddr)) {
+                    // 重新建立连接
+                    infoMgd.conn2Mgd();
+                }
+
+                SimpleMgd generalMgd = BeanContext.context.getBean("generalMgd", SimpleMgd.class);
+                String generalMgdAddr = generalMgd.getMgdAddr();
+                if (!propertiesUtil.getProps().get(PropertyLabel.SQL_MONGODB_ADDR_KEY).equals(generalMgdAddr)) {
+                    // 重新建立连接
+                    generalMgd.conn2Mgd();
+                }
+
+                SimpleMgd dataMgd = BeanContext.context.getBean("dataMgd", SimpleMgd.class);
+                String dataMgdAddr = dataMgd.getMgdAddr();
+                if (!propertiesUtil.getProps().get(PropertyLabel.SQL_MONGODB_ADDR_KEY).equals(dataMgdAddr)) {
+                    // 重新建立连接
+                    dataMgd.conn2Mgd();
+                }
+
+            }
+        }catch (Exception e) {
+            logger.error("", e);
+        }
+
+    }
 
     /**
      * 删除，分别从config和data集合删除数据，没有加速措施
