@@ -1,0 +1,9 @@
+disk_space_left.sh放在应用服务器目录，应用会调用disk_space_left.sh来查看应用服务器的存储空间。
+
+freespace2mgd.sh放在数据库服务器的数据库目录，通过crontab实现周期性调用（推荐设置为每周1次，并设置在凌晨），实现存储空间检查，并存放到MongoDB数据库中。
+
+query_user.sh放在数据库服务器中运行，可以实现查询应用服务器管理员信息。
+
+mongoexport.sh为一条在Mongo Shell下运行的指令，表示拷贝数据集合到文件。当数据库存储空间不足时，可以将数据拷贝出来归档。
+
+
