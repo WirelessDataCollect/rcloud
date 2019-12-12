@@ -20,7 +20,7 @@ public class PropertiesUtil {
      */
     private Properties props=null;
 
-    private String path = "/home/scc/configuration/rcloud_configuration.properties";
+    private String path = PropertyLabel.PROPERTIES_FILE_ADDR;
 
     /**
      * 装载属性文件
@@ -37,7 +37,7 @@ public class PropertiesUtil {
      * @return
      * @throws IOException
      */
-    public String readValue(String key) throws IOException {
+    public String readValue(String key) {
         return  props.getProperty(key);
     }
 

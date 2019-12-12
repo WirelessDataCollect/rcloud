@@ -23,4 +23,8 @@ public class MgdConfig {
     public SimpleMgd adminMgd(){
         return new SimpleMgd("data", "admin", "");
     }
+    @Bean(name = "spaceMgd")
+    public SimpleMgd spaceMgd(){
+        return new SimpleMgd("data", "space", "");
+    }
 }

@@ -24,6 +24,13 @@ public class PropertyLabel {
     public static final String DISK_SPACE_ARGS_KEY = "diskspace.args";
     public static final String DISK_SPACE_WORKSPACE_KEY = "diskspace.workspace";
 
-    public static final String SQL_MONGODB_ADDR_KEY = "sql.mongodb.addr";
-
+    public static final String DB_MONGODB_ADMIN_ENABLE_KEY = "db.mongodb.adminEnable";
+    public static final String DB_MONGODB_ADMIN_DB_KEY = "db.mongodb.adminDb";
+    public static final String DB_MONGODB_ADMIN_ENABLE_YES = "yes";
+    public static final String DB_MONGODB_ADMIN_ENABLE_NO = "no";
+    public static final String DB_MONGODB_USER_KEY="db.mongodb.user";
+    public static final String DB_MONGODB_PASSWORD="db.mongodb.password";
+    public static final String DB_MONGODB_ADDR_KEY = "db.mongodb.addr";
+    public static final String DB_MONGODB_PORT_KEY = "db.mongodb.port";
+    public static final String DB_Minimum_G_KEY = "db.minimumG";
 }

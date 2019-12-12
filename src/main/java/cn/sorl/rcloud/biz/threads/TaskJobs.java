@@ -7,9 +7,9 @@ import cn.sorl.rcloud.common.util.PropertyLabel;
 import cn.sorl.rcloud.common.util.ShellCallUtil;
 import cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd;
 import cn.sorl.rcloud.dal.mongodb.mgdpo.RuiliDatadbSegment;
+import cn.sorl.rcloud.dal.mongodb.mgdpo.RuiliDbSpaceSegment;
 import cn.sorl.rcloud.dal.mongodb.mgdpo.RuiliInfodbSegment;
 import cn.sorl.rcloud.dal.netty.RuiliPcChannelAttr;
-import cn.sorl.rcloud.dal.netty.RuiliPcCmdAttr;
 import cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler;
 import cn.sorl.rcloud.dal.network.EmailSender;
 import com.mongodb.BasicDBObject;
@@ -21,14 +21,11 @@ import com.mongodb.async.client.MongoIterable;
 import com.mongodb.client.model.Indexes;
 import com.mongodb.client.result.DeleteResult;
 import io.netty.buffer.Unpooled;
-import io.netty.buffer.UnpooledUnsafeDirectByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.util.CharsetUtil;
-import jdk.nashorn.tools.Shell;
 import org.bson.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -38,7 +35,6 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.concurrent.Future;
 
 /**
  *
@@ -225,6 +221,7 @@ public class TaskJobs {
         }
     }
 
+
     /**
      * 检查磁盘空间的大小，如果过小则发送邮件
      */
@@ -232,6 +229,7 @@ public class TaskJobs {
     @Scheduled(cron="0 00 02 * * MON-FRI")  //每周周一到五凌晨2点
     public void checkDiskSpace() {
         try {
+            // 检查本机
             propertiesUtil.updateProps();
             String script = shellCallUtil.getProperty(PropertyLabel.DISK_SPACE_SCRIPT_KEY);
             String args = shellCallUtil.getProperty(PropertyLabel.DISK_SPACE_ARGS_KEY);
@@ -243,7 +241,7 @@ public class TaskJobs {
             if (freeSpaceInt < Integer.parseInt(propertiesUtil.readValue(PropertyLabel.DISK_SPACE_MINIMUM_G_KEY))) {
                 logger.warn("R-CLOUD STORAGE NOT ENOUGH");
                 if (propertiesUtil.readValue(PropertyLabel.MAIL_ENABLE_KEY).equals(PropertyLabel.MAIL_ENABLE_YES)) {
-                    String subject = "R-CLOUD 服务器空间不足";
+                    String subject = "R-CLOUD 应用服务器空间不足";
                     String content = "<br>剩余存储空间 ：" + freeSpace+ "<br><br>-----<br>瑞立集团网络技术中心";
                     // 逐个发送给用户
                     EmailSender emailSender = new EmailSender(propertiesUtil);
@@ -253,6 +251,33 @@ public class TaskJobs {
                     }
                 }
             }
+
+            // 检查数据库
+            SimpleMgd spaceMgd = (SimpleMgd) BeanContext.context.getBean("spaceMgd");
+            BasicDBObject projections = new BasicDBObject();
+            projections.append(RuiliDbSpaceSegment.DB_SERVER_FREE_SPACE, 1).append("_id", 0);
+            //BasicDBObject时Bson的实现
+            BasicDBObject filter = new BasicDBObject();
+            spaceMgd.collection.find().first(new SingleResultCallback<Document>() {
+                @Override
+                public void onResult(Document result, Throwable t) {
+                    String freeSpace = (String)result.get(RuiliDbSpaceSegment.DB_SERVER_FREE_SPACE);
+                    Integer freeSpaceInt = Integer.parseInt(freeSpace.split("G")[0]);
+                    if (freeSpaceInt < Integer.parseInt(propertiesUtil.readValue(PropertyLabel.DB_Minimum_G_KEY))) {
+                        logger.warn("DATABASE STORAGE NOT ENOUGH");
+                        if (propertiesUtil.readValue(PropertyLabel.MAIL_ENABLE_KEY).equals(PropertyLabel.MAIL_ENABLE_YES)) {
+                            String subject = "R-CLOUD 数据库服务器空间不足";
+                            String content = "<br>剩余存储空间 ：" + freeSpace+ "<br><br>-----<br>瑞立集团网络技术中心";
+                            EmailSender emailSender = new EmailSender(propertiesUtil);
+                            for (String mailAdr : propertiesUtil.readValue(PropertyLabel.MAIL_LIST_KEY).split(PropertyLabel.MAIL_LIST_SPLIT)) {
+                                emailSender.sendMail(mailAdr, subject, content);
+                                logger.info("Email Send to : " + mailAdr);
+                            }
+                        }
+                    }
+                }
+            });
+
         } catch (Exception e) {
             logger.error("",e);
         }
@@ -270,28 +295,28 @@ public class TaskJobs {
             SimpleMgd adminMgd = BeanContext.context.getBean("adminMgd", SimpleMgd.class);
             String adminMgdAddr = adminMgd.getMgdAddr();
             // 如果发现了mgd地址该了
-            if (!propertiesUtil.getProps().get(PropertyLabel.SQL_MONGODB_ADDR_KEY).equals(adminMgdAddr)) {
+            if (!propertiesUtil.getProps().get(PropertyLabel.DB_MONGODB_ADDR_KEY).equals(adminMgdAddr)) {
                 logger.info("MongoDB Addr Changed!Starting Change Mongo Client Connection...");
                 // 重新建立连接
                 adminMgd.conn2Mgd();
 
                 SimpleMgd infoMgd = BeanContext.context.getBean("infoMgd", SimpleMgd.class);
                 String infoMgdAddr = infoMgd.getMgdAddr();
-                if (!propertiesUtil.getProps().get(PropertyLabel.SQL_MONGODB_ADDR_KEY).equals(infoMgdAddr)) {
+                if (!propertiesUtil.getProps().get(PropertyLabel.DB_MONGODB_ADDR_KEY).equals(infoMgdAddr)) {
                     // 重新建立连接
                     infoMgd.conn2Mgd();
                 }
 
                 SimpleMgd generalMgd = BeanContext.context.getBean("generalMgd", SimpleMgd.class);
                 String generalMgdAddr = generalMgd.getMgdAddr();
-                if (!propertiesUtil.getProps().get(PropertyLabel.SQL_MONGODB_ADDR_KEY).equals(generalMgdAddr)) {
+                if (!propertiesUtil.getProps().get(PropertyLabel.DB_MONGODB_ADDR_KEY).equals(generalMgdAddr)) {
                     // 重新建立连接
                     generalMgd.conn2Mgd();
                 }
 
                 SimpleMgd dataMgd = BeanContext.context.getBean("dataMgd", SimpleMgd.class);
                 String dataMgdAddr = dataMgd.getMgdAddr();
-                if (!propertiesUtil.getProps().get(PropertyLabel.SQL_MONGODB_ADDR_KEY).equals(dataMgdAddr)) {
+                if (!propertiesUtil.getProps().get(PropertyLabel.DB_MONGODB_ADDR_KEY).equals(dataMgdAddr)) {
                     // 重新建立连接
                     dataMgd.conn2Mgd();
                 }

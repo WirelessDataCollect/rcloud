@@ -31,6 +31,10 @@ public class SimpleMgd {
     private String indexName = "";
 
     private String mgdAddr = "";
+    private String user = "";
+    private String password = "";
+    private int port = 27017;
+    private String adminDb = "admin";
 
     public int testFlag = 0;
 
@@ -258,8 +262,22 @@ public class SimpleMgd {
      */
     public void conn2Mgd () {
         try {
-            mgdAddr = new PropertiesUtil(PropertyLabel.PROPERTIES_FILE_ADDR).readValue(PropertyLabel.SQL_MONGODB_ADDR_KEY);
-            mongoClient = MongoClients.create("mongodb://"+mgdAddr);
+            PropertiesUtil propertiesUtil = new PropertiesUtil(PropertyLabel.PROPERTIES_FILE_ADDR);
+            mgdAddr = propertiesUtil.readValue(PropertyLabel.DB_MONGODB_ADDR_KEY);
+            port = Integer.parseInt(propertiesUtil.readValue(PropertyLabel.DB_MONGODB_PORT_KEY));
+            user = propertiesUtil.readValue(PropertyLabel.DB_MONGODB_USER_KEY);
+            String sURI;
+            // 需要开启用户登录
+            if (propertiesUtil.readValue(PropertyLabel.DB_MONGODB_ADMIN_ENABLE_KEY).equals(PropertyLabel.DB_MONGODB_ADMIN_ENABLE_YES)) {
+                password = propertiesUtil.readValue(PropertyLabel.DB_MONGODB_PASSWORD);
+                adminDb = propertiesUtil.readValue(PropertyLabel.DB_MONGODB_ADMIN_DB_KEY);
+                sURI = String.format("mongodb://%s:%s@%s:%d/%s", user, password, mgdAddr, port,adminDb);
+            } else {
+                // 不需要开启用户登录
+                sURI = String.format("mongodb://%s:%d", mgdAddr, port);
+            }
+
+            mongoClient = MongoClients.create(sURI);
             mongoDatabase = mongoClient.getDatabase(this.dbName);
             collection = mongoDatabase.getCollection(this.colName);
             if(!this.getIndexName().equals("")) {
@@ -272,7 +290,7 @@ public class SimpleMgd {
             }
             logger.info(String.format("Connected to db.col(%s.%s) successfully", this.dbName,this.colName));
         }catch(Exception e) {
-            logger.error("MongoDB init unsuccessfully!",e);
+            logger.error("MongoDB init UNSUCCESSFULLY!",e);
         }
     }
 }
