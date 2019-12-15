@@ -317,11 +317,13 @@ public class TaskJobs {
                 String subject = "R-CLOUD 应用服务器CPU/内存使用率过高";
                 String content = String.format("<br>CPU使用率 ： %.2f %%（警戒线 ： %.2f %%）<br>内存使用率 ： %.2f%% （警戒线 ： %.2f %%）<br>下次提醒时间：%d 分钟后<br><br>-----<br>瑞立集团网络技术中心", cpuUsageRate * 100, cpuUsageRateMax * 100, memUsageRate * 100 , memUsageRateMax * 100,diagnosisEmailTime);
                 logger.warn(content);
-//                EmailSender emailSender = new EmailSender(propertiesUtil);
-//                for (String mailAdr : propertiesUtil.readValue(PropertyLabel.MAIL_LIST_KEY).split(PropertyLabel.MAIL_LIST_SPLIT)) {
-//                    emailSender.sendMail(mailAdr, subject, content);
-//                    logger.info("Email Send to : " + mailAdr);
-//                }
+                if (propertiesUtil.readValue(PropertyLabel.MAIL_ENABLE_KEY).equals(PropertyLabel.MAIL_ENABLE_YES)) {
+                    EmailSender emailSender = new EmailSender(propertiesUtil);
+                    for (String mailAdr : propertiesUtil.readValue(PropertyLabel.MAIL_LIST_KEY).split(PropertyLabel.MAIL_LIST_SPLIT)) {
+                        emailSender.sendMail(mailAdr, subject, content);
+                        logger.info("Email Send to : " + mailAdr);
+                    }
+                }
             }
             this.serverErrorAppearenceTime += 1;
         }else {
