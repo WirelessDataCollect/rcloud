@@ -1,6 +1,7 @@
 package cn.sorl.rcloud.biz.threads;
 
 import cn.sorl.rcloud.biz.beanconfig.BeanContext;
+import cn.sorl.rcloud.common.diagnosis.ServerMonitor;
 import cn.sorl.rcloud.common.time.TimeUtils;
 import cn.sorl.rcloud.common.util.PropertiesUtil;
 import cn.sorl.rcloud.common.util.PropertyLabel;
@@ -54,6 +55,14 @@ public class TaskJobs {
     PropertiesUtil propertiesUtil = new PropertiesUtil(PropertyLabel.PROPERTIES_FILE_ADDR);
     ShellCallUtil shellCallUtil = new ShellCallUtil(propertiesUtil);
 
+    /**
+     * 服务器状态管理
+     */
+    ServerMonitor serverMonitor = new ServerMonitor(10,10);
+    /**
+     * 服务器问题出现后的时间，用于实现发邮件不要过于频繁
+     */
+    int serverErrorAppearenceTime = 0;
     /**
      * 更新用于插入数据的MongoClient所指向的集合
      */
@@ -283,6 +292,42 @@ public class TaskJobs {
         }
     }
 
+    /**
+     * 服务器状态管理
+     */
+    @Scheduled(cron="0 2/1 * * * ?")
+//    @Scheduled(cron="0/5 * * * * ?")
+    public void checkServerState () {
+        this.serverMonitor.updateCpuUsageRateQueue();
+        this.serverMonitor.updateMemUsageRateQueue();
+        // 半天过去，不需要报警
+        int diagnosisEmailTime = Integer.parseInt(propertiesUtil.readValue(PropertyLabel.SERVER_DIAGNOSIS_EMAIL_TIME_KEY));
+        if (this.serverErrorAppearenceTime > diagnosisEmailTime) {
+            this.serverErrorAppearenceTime = 0;
+        }else if(this.serverErrorAppearenceTime > 0) {
+            this.serverErrorAppearenceTime += 1;
+        }else if(this.serverErrorAppearenceTime == 0) {
+            double cpuUsageRate = this.serverMonitor.getCpuUsageRateAverage();
+            double memUsageRate = this.serverMonitor.getMemUsageRateAverage();
+            // cpu和内粗使用率达到0.9和0.9以上则报警
+            double cpuUsageRateMax = Double.parseDouble(propertiesUtil.readValue(PropertyLabel.SERVER_CPU_MAX_USAGE_KEY));
+            double memUsageRateMax = Double.parseDouble(propertiesUtil.readValue(PropertyLabel.SERVER_MEM_MAX_USAGE_KEY));
+            if (cpuUsageRate > cpuUsageRateMax || memUsageRate >  memUsageRateMax) {
+                logger.warn("Server Faulty!");
+                String subject = "R-CLOUD 应用服务器CPU/内存使用率过高";
+                String content = String.format("<br>CPU使用率 ： %.2f %%（警戒线 ： %.2f %%）<br>内存使用率 ： %.2f%% （警戒线 ： %.2f %%）<br>下次提醒时间：%d 分钟后<br><br>-----<br>瑞立集团网络技术中心", cpuUsageRate * 100, cpuUsageRateMax * 100, memUsageRate * 100 , memUsageRateMax * 100,diagnosisEmailTime);
+                logger.warn(content);
+//                EmailSender emailSender = new EmailSender(propertiesUtil);
+//                for (String mailAdr : propertiesUtil.readValue(PropertyLabel.MAIL_LIST_KEY).split(PropertyLabel.MAIL_LIST_SPLIT)) {
+//                    emailSender.sendMail(mailAdr, subject, content);
+//                    logger.info("Email Send to : " + mailAdr);
+//                }
+            }
+            this.serverErrorAppearenceTime += 1;
+        }else {
+            this.serverErrorAppearenceTime = 0;
+        }
+    }
     /**
      * 每10min检查一次的配置，MongoDB数据库的地址是否改变了
      */

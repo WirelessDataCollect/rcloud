@@ -24,6 +24,10 @@ public class PropertyLabel {
     public static final String DISK_SPACE_ARGS_KEY = "diskspace.args";
     public static final String DISK_SPACE_WORKSPACE_KEY = "diskspace.workspace";
 
+    public static final String SERVER_CPU_MAX_USAGE_KEY = "server.cpu.maxUsage";
+    public static final String SERVER_MEM_MAX_USAGE_KEY = "server.mem.maxUsage";
+    public static final String SERVER_DIAGNOSIS_EMAIL_TIME_KEY = "server.diagnosis.emailtime";
+
     public static final String DB_MONGODB_ADMIN_ENABLE_KEY = "db.mongodb.adminEnable";
     public static final String DB_MONGODB_ADMIN_DB_KEY = "db.mongodb.adminDb";
     public static final String DB_MONGODB_ADMIN_ENABLE_YES = "yes";
