@@ -5,10 +5,9 @@ import cn.sorl.rcloud.common.diagnosis.ServerMonitor;
 import cn.sorl.rcloud.common.time.TimeUtils;
 import cn.sorl.rcloud.common.util.PropertiesUtil;
 import cn.sorl.rcloud.common.util.PropertyLabel;
-import cn.sorl.rcloud.common.util.ShellCallUtil;
 import cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd;
 import cn.sorl.rcloud.dal.mongodb.mgdpo.RuiliDatadbSegment;
-import cn.sorl.rcloud.dal.mongodb.mgdpo.RuiliDbSpaceSegment;
+import cn.sorl.rcloud.dal.mongodb.mgdpo.RuiliDbStateSegment;
 import cn.sorl.rcloud.dal.mongodb.mgdpo.RuiliInfodbSegment;
 import cn.sorl.rcloud.dal.netty.RuiliPcChannelAttr;
 import cn.sorl.rcloud.dal.netty.RuiliPcTcpHandler;
@@ -53,7 +52,9 @@ public class TaskJobs {
     //配置任务的执行时间，可以配置多个(根据插入时间删除)
     private final static String hms4MgdClearByInsertIsodate = "T03:00:00";
     PropertiesUtil propertiesUtil = new PropertiesUtil(PropertyLabel.PROPERTIES_FILE_ADDR);
-    ShellCallUtil shellCallUtil = new ShellCallUtil(propertiesUtil);
+
+    // 服务器状态检测周期
+    private final static String SERVER_CHECK_TIME = "20";
 
     /**
      * 服务器状态管理
@@ -235,54 +236,37 @@ public class TaskJobs {
      * 检查磁盘空间的大小，如果过小则发送邮件
      */
 //    @Scheduled(cron="0/10 * * * * *")  // 测试用，每10秒检查一次
-    @Scheduled(cron="0 00 02 * * MON-FRI")  //每周周一到五凌晨2点
-    public void checkDiskSpace() {
+    @Scheduled(cron="0 0 2 * * ?")  //每天凌晨2点
+    public void checkDatabase() {
         try {
-            // 检查本机
             propertiesUtil.updateProps();
-            String script = shellCallUtil.getProperty(PropertyLabel.DISK_SPACE_SCRIPT_KEY);
-            String args = shellCallUtil.getProperty(PropertyLabel.DISK_SPACE_ARGS_KEY);
-            String workspace = shellCallUtil.getProperty(PropertyLabel.DISK_SPACE_WORKSPACE_KEY);
-            String freeSpace = shellCallUtil.callShell(script,args,workspace);
-            logger.info("Check Disk Space Free: DIR = " + workspace+"\t" + freeSpace);
-            Integer freeSpaceInt = Integer.parseInt(freeSpace.split("G")[0]);
-            // 开启邮件提醒
-            if (freeSpaceInt < Integer.parseInt(propertiesUtil.readValue(PropertyLabel.DISK_SPACE_MINIMUM_G_KEY))) {
-                logger.warn("R-CLOUD STORAGE NOT ENOUGH");
-                if (propertiesUtil.readValue(PropertyLabel.MAIL_ENABLE_KEY).equals(PropertyLabel.MAIL_ENABLE_YES)) {
-                    String subject = "R-CLOUD 应用服务器空间不足";
-                    String content = "<br>剩余存储空间 ：" + freeSpace+ "<br><br>-----<br>瑞立集团网络技术中心";
-                    // 逐个发送给用户
-                    EmailSender emailSender = new EmailSender(propertiesUtil);
-                    for (String mailAdr : propertiesUtil.readValue(PropertyLabel.MAIL_LIST_KEY).split(PropertyLabel.MAIL_LIST_SPLIT)) {
-                        emailSender.sendMail(mailAdr, subject, content);
-                        logger.info("Email Send to : " + mailAdr);
-                    }
-                }
-            }
-
             // 检查数据库
-            SimpleMgd spaceMgd = (SimpleMgd) BeanContext.context.getBean("spaceMgd");
+            SimpleMgd dbStateMgd = (SimpleMgd) BeanContext.context.getBean("dbStateMgd");
             BasicDBObject projections = new BasicDBObject();
-            projections.append(RuiliDbSpaceSegment.DB_SERVER_FREE_SPACE, 1).append("_id", 0);
+            projections.append(RuiliDbStateSegment.DB_MEM_USAGE_RATE_KEY, 1)
+                    .append(RuiliDbStateSegment.DB_CPU_LOGICAL_KERNEL_NUM_KEY,1)
+                    .append(RuiliDbStateSegment.DB_CPU_USAGERATE_15MIN_KEY,1)
+                    .append(RuiliDbStateSegment.DB_DISK_FREE_SPACE_G_KEY,1)
+                    .append("_id", 0);
             //BasicDBObject时Bson的实现
             BasicDBObject filter = new BasicDBObject();
-            spaceMgd.collection.find().first(new SingleResultCallback<Document>() {
+            dbStateMgd.collection.find().first(new SingleResultCallback<Document>() {
                 @Override
                 public void onResult(Document result, Throwable t) {
-                    String freeSpace = (String)result.get(RuiliDbSpaceSegment.DB_SERVER_FREE_SPACE);
-                    Integer freeSpaceInt = Integer.parseInt(freeSpace.split("G")[0]);
-                    if (freeSpaceInt < Integer.parseInt(propertiesUtil.readValue(PropertyLabel.DB_Minimum_G_KEY))) {
-                        logger.warn("DATABASE STORAGE NOT ENOUGH");
-                        if (propertiesUtil.readValue(PropertyLabel.MAIL_ENABLE_KEY).equals(PropertyLabel.MAIL_ENABLE_YES)) {
-                            String subject = "R-CLOUD 数据库服务器空间不足";
-                            String content = "<br>剩余存储空间 ：" + freeSpace+ "<br><br>-----<br>瑞立集团网络技术中心";
-                            EmailSender emailSender = new EmailSender(propertiesUtil);
-                            for (String mailAdr : propertiesUtil.readValue(PropertyLabel.MAIL_LIST_KEY).split(PropertyLabel.MAIL_LIST_SPLIT)) {
-                                emailSender.sendMail(mailAdr, subject, content);
-                                logger.info("Email Send to : " + mailAdr);
-                            }
-                        }
+                    propertiesUtil.updateProps();
+                    int freeDiskSpaceInt = Integer.parseInt(result.getString(RuiliDbStateSegment.DB_DISK_FREE_SPACE_G_KEY));
+                    int freeDiskSpaceIntMin = Integer.parseInt(propertiesUtil.readValue(PropertyLabel.SERVER_DISK_MINIMUM_G_KEY));
+                    double memUsageRate = Double.parseDouble(result.getString(RuiliDbStateSegment.DB_MEM_USAGE_RATE_KEY));
+                    double memUsageRateMax = Double.parseDouble(propertiesUtil.readValue(PropertyLabel.SERVER_MEM_MAX_USAGE_KEY));
+                    // 获取单个CPU核的使用率
+                    double cpuAllKernelUsage = Double.parseDouble(result.getString(RuiliDbStateSegment.DB_CPU_USAGERATE_15MIN_KEY));
+                    int cpuLogicalKernelNum = Integer.parseInt(result.getString(RuiliDbStateSegment.DB_CPU_LOGICAL_KERNEL_NUM_KEY));
+                    double cpuSingleKernelUsageRate = cpuAllKernelUsage / cpuLogicalKernelNum;
+                    double cpuSingleKernelUsageRateMax = Double.parseDouble(propertiesUtil.readValue(PropertyLabel.SERVER_CPU_MAX_USAGE_KEY));
+                    // 开启邮件提醒
+                    if (freeDiskSpaceInt < freeDiskSpaceIntMin||memUsageRate > memUsageRateMax ||cpuSingleKernelUsageRate > cpuSingleKernelUsageRateMax) {
+                        logger.warn("DB Server Faulty!");
+                        dbAppServerAlarm(propertiesUtil,cpuSingleKernelUsageRate,cpuSingleKernelUsageRateMax,memUsageRate,memUsageRateMax,freeDiskSpaceInt,freeDiskSpaceIntMin,1.0);
                     }
                 }
             });
@@ -295,46 +279,76 @@ public class TaskJobs {
     /**
      * 服务器状态管理
      */
-    @Scheduled(cron="0 2/1 * * * ?")
+    @Scheduled(cron="0 0/"+SERVER_CHECK_TIME+" * * * ?")
 //    @Scheduled(cron="0/5 * * * * ?")
     public void checkServerState () {
-        this.serverMonitor.updateCpuUsageRateQueue();
-        this.serverMonitor.updateMemUsageRateQueue();
-        // 半天过去，不需要报警
+        PropertiesUtil serverPropUtil = new PropertiesUtil(propertiesUtil.readValue(PropertyLabel.SERVER_PROPS_ADDR_KEY));
+        propertiesUtil.updateProps();
         int diagnosisEmailTime = Integer.parseInt(propertiesUtil.readValue(PropertyLabel.SERVER_DIAGNOSIS_EMAIL_TIME_KEY));
         if (this.serverErrorAppearenceTime > diagnosisEmailTime) {
             this.serverErrorAppearenceTime = 0;
         }else if(this.serverErrorAppearenceTime > 0) {
             this.serverErrorAppearenceTime += 1;
         }else if(this.serverErrorAppearenceTime == 0) {
-            double cpuUsageRate = this.serverMonitor.getCpuUsageRateAverage();
-            double memUsageRate = this.serverMonitor.getMemUsageRateAverage();
-            // cpu和内粗使用率达到0.9和0.9以上则报警
-            double cpuUsageRateMax = Double.parseDouble(propertiesUtil.readValue(PropertyLabel.SERVER_CPU_MAX_USAGE_KEY));
+            int freeDiskSpaceInt = Integer.parseInt(serverPropUtil.readValue(PropertyLabel.SERVER_DISK_FREE_SPACE_G_KEY));
+            int freeDiskSpaceIntMin = Integer.parseInt(propertiesUtil.readValue(PropertyLabel.SERVER_DISK_MINIMUM_G_KEY));
+            double memUsageRate = Double.parseDouble(serverPropUtil.readValue(PropertyLabel.SERVRE_MEM_USAGE_RATE_KEY));
             double memUsageRateMax = Double.parseDouble(propertiesUtil.readValue(PropertyLabel.SERVER_MEM_MAX_USAGE_KEY));
-            if (cpuUsageRate > cpuUsageRateMax || memUsageRate >  memUsageRateMax) {
-                logger.warn("Server Faulty!");
-                String subject = "R-CLOUD 应用服务器CPU/内存使用率过高";
-                String content = String.format("<br>CPU使用率 ： %.2f %%（警戒线 ： %.2f %%）<br>内存使用率 ： %.2f%% （警戒线 ： %.2f %%）<br>下次提醒时间：%d 分钟后<br><br>-----<br>瑞立集团网络技术中心", cpuUsageRate * 100, cpuUsageRateMax * 100, memUsageRate * 100 , memUsageRateMax * 100,diagnosisEmailTime);
-                logger.warn(content);
-                if (propertiesUtil.readValue(PropertyLabel.MAIL_ENABLE_KEY).equals(PropertyLabel.MAIL_ENABLE_YES)) {
-                    EmailSender emailSender = new EmailSender(propertiesUtil);
-                    for (String mailAdr : propertiesUtil.readValue(PropertyLabel.MAIL_LIST_KEY).split(PropertyLabel.MAIL_LIST_SPLIT)) {
-                        emailSender.sendMail(mailAdr, subject, content);
-                        logger.info("Email Send to : " + mailAdr);
-                    }
+            // 获取单个CPU核的使用率
+            double cpuAllKernelUsage = Double.parseDouble(serverPropUtil.readValue(PropertyLabel.SERVER_CPU_USAGE_RAGE_15MIN_KEY));
+            int cpuLogicalKernelNum = Integer.parseInt(serverPropUtil.readValue(PropertyLabel.SERVER_CPU_LOGICAL_KERNEL_NUM_KEY));
+            double cpuSingleKernelUsageRate = cpuAllKernelUsage / cpuLogicalKernelNum;
+            double cpuSingleKernelUsageRateMax = Double.parseDouble(propertiesUtil.readValue(PropertyLabel.SERVER_CPU_MAX_USAGE_KEY));
+            // 开启邮件提醒
+            if (freeDiskSpaceInt < freeDiskSpaceIntMin||memUsageRate > memUsageRateMax ||cpuSingleKernelUsageRate > cpuSingleKernelUsageRateMax) {
+                logger.warn("Application Server Faulty!");
+                dbAppServerAlarm(propertiesUtil,cpuSingleKernelUsageRate,cpuSingleKernelUsageRateMax,memUsageRate,memUsageRateMax,freeDiskSpaceInt,freeDiskSpaceIntMin,diagnosisEmailTime*Integer.parseInt(SERVER_CHECK_TIME)/1440.0);
+                this.serverErrorAppearenceTime+=1;
+            }
+        }
+    }
+
+    /**
+     * 发送邮件提醒管理员修复
+     * @param propertiesUtil
+     * @param cpuSingleKernelUsageRate
+     * @param cpuSingleKernelUsageRateMax
+     * @param memUsageRate
+     * @param memUsageRateMax
+     * @param freeDiskSpaceInt
+     * @param freeDiskSpaceIntMin
+     * @param diagnosisEmailTimeDay
+     */
+    private void dbAppServerAlarm (PropertiesUtil propertiesUtil,double cpuSingleKernelUsageRate, double cpuSingleKernelUsageRateMax, double memUsageRate, double memUsageRateMax, int freeDiskSpaceInt, int freeDiskSpaceIntMin, double diagnosisEmailTimeDay) {
+        if (propertiesUtil.readValue(PropertyLabel.MAIL_ENABLE_KEY).equals(PropertyLabel.MAIL_ENABLE_YES)) {
+            String subject = "R-CLOUD 应用服务器";
+            if (cpuSingleKernelUsageRate > cpuSingleKernelUsageRateMax) {
+                subject += "CPU使用率过高；";
+            }
+            if (memUsageRate > memUsageRateMax) {
+                subject += "内存空间不足；";
+            }
+            if (freeDiskSpaceInt < freeDiskSpaceIntMin) {
+                subject += "磁盘空间不足；";
+            }
+
+            String content = String.format("<br>CPU单个逻辑核使用率 ： %.2f %%（警戒线 ： < %.2f %%）<br>内存使用率 ： %.2f%% （警戒线 ： < %.2f %%）<br>磁盘剩余空间 ： %d G （警戒线 ： > %d G）<br>下次提醒时间：%.3f 天后<br><br>-----<br>瑞立集团网络技术中心",
+                    cpuSingleKernelUsageRate * 100, cpuSingleKernelUsageRateMax * 100, memUsageRate * 100 , memUsageRateMax * 100,freeDiskSpaceInt,freeDiskSpaceIntMin, diagnosisEmailTimeDay);
+            logger.warn(content);
+            if (propertiesUtil.readValue(PropertyLabel.MAIL_ENABLE_KEY).equals(PropertyLabel.MAIL_ENABLE_YES)) {
+                EmailSender emailSender = new EmailSender(propertiesUtil);
+                for (String mailAdr : propertiesUtil.readValue(PropertyLabel.MAIL_LIST_KEY).split(PropertyLabel.MAIL_LIST_SPLIT)) {
+                    emailSender.sendMail(mailAdr, subject, content);
+                    logger.info("Email Send to : " + mailAdr);
                 }
             }
-            this.serverErrorAppearenceTime += 1;
-        }else {
-            this.serverErrorAppearenceTime = 0;
         }
     }
     /**
      * 每10min检查一次的配置，MongoDB数据库的地址是否改变了
      */
 //    @Scheduled(cron="0 0/10 * * * ?")
-    @Scheduled(cron="0/10 * * * * ?")
+    @Scheduled(cron="0 0/10 * * * ?")
     public void checkProperties10Min() {
         try {
             propertiesUtil.updateProps();
