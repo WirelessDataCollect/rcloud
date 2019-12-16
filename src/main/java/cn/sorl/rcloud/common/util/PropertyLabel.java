@@ -33,7 +33,9 @@ public class PropertyLabel {
     public static final String DB_MONGODB_PASSWORD="db.mongodb.password";
     public static final String DB_MONGODB_ADDR_KEY = "db.mongodb.addr";
     public static final String DB_MONGODB_PORT_KEY = "db.mongodb.port";
-    public static final String DB_MINIMUM_G_KEY = "db.minimumG";
+    public static final String DB_DISK_MINIMUM_G_KEY = "db.disk.minimumG";
+    public static final String DB_CPU_MAX_USAGE_KEY = "db.cpu.maxUsage";
+    public static final String DB_MEM_MAX_USAGE_KEY = "db.mem.maxUsage";
 
     //脚本实时更改的内容
     //此内容存放地址在PropertyLabel.SERVER_PROPS_ADDR_KEY文件中保存

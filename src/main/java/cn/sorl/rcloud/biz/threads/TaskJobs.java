@@ -255,18 +255,18 @@ public class TaskJobs {
                 public void onResult(Document result, Throwable t) {
                     propertiesUtil.updateProps();
                     int freeDiskSpaceInt = Integer.parseInt(result.getString(RuiliDbStateSegment.DB_DISK_FREE_SPACE_G_KEY));
-                    int freeDiskSpaceIntMin = Integer.parseInt(propertiesUtil.readValue(PropertyLabel.SERVER_DISK_MINIMUM_G_KEY));
+                    int freeDiskSpaceIntMin = Integer.parseInt(propertiesUtil.readValue(PropertyLabel.DB_DISK_MINIMUM_G_KEY));
                     double memUsageRate = Double.parseDouble(result.getString(RuiliDbStateSegment.DB_MEM_USAGE_RATE_KEY));
-                    double memUsageRateMax = Double.parseDouble(propertiesUtil.readValue(PropertyLabel.SERVER_MEM_MAX_USAGE_KEY));
+                    double memUsageRateMax = Double.parseDouble(propertiesUtil.readValue(PropertyLabel.DB_MEM_MAX_USAGE_KEY));
                     // 获取单个CPU核的使用率
                     double cpuAllKernelUsage = Double.parseDouble(result.getString(RuiliDbStateSegment.DB_CPU_USAGERATE_15MIN_KEY));
                     int cpuLogicalKernelNum = Integer.parseInt(result.getString(RuiliDbStateSegment.DB_CPU_LOGICAL_KERNEL_NUM_KEY));
                     double cpuSingleKernelUsageRate = cpuAllKernelUsage / cpuLogicalKernelNum;
-                    double cpuSingleKernelUsageRateMax = Double.parseDouble(propertiesUtil.readValue(PropertyLabel.SERVER_CPU_MAX_USAGE_KEY));
+                    double cpuSingleKernelUsageRateMax = Double.parseDouble(propertiesUtil.readValue(PropertyLabel.DB_CPU_MAX_USAGE_KEY));
                     // 开启邮件提醒
                     if (freeDiskSpaceInt < freeDiskSpaceIntMin||memUsageRate > memUsageRateMax ||cpuSingleKernelUsageRate > cpuSingleKernelUsageRateMax) {
                         logger.warn("DB Server Faulty!");
-                        dbAppServerAlarm(propertiesUtil,cpuSingleKernelUsageRate,cpuSingleKernelUsageRateMax,memUsageRate,memUsageRateMax,freeDiskSpaceInt,freeDiskSpaceIntMin,1.0);
+                        dbAppServerAlarm(propertiesUtil,"数据库",cpuSingleKernelUsageRate,cpuSingleKernelUsageRateMax,memUsageRate,memUsageRateMax,freeDiskSpaceInt,freeDiskSpaceIntMin,1.0);
                     }
                 }
             });
@@ -302,7 +302,7 @@ public class TaskJobs {
             // 开启邮件提醒
             if (freeDiskSpaceInt < freeDiskSpaceIntMin||memUsageRate > memUsageRateMax ||cpuSingleKernelUsageRate > cpuSingleKernelUsageRateMax) {
                 logger.warn("Application Server Faulty!");
-                dbAppServerAlarm(propertiesUtil,cpuSingleKernelUsageRate,cpuSingleKernelUsageRateMax,memUsageRate,memUsageRateMax,freeDiskSpaceInt,freeDiskSpaceIntMin,diagnosisEmailTime*Integer.parseInt(SERVER_CHECK_TIME)/1440.0);
+                dbAppServerAlarm(propertiesUtil,"应用",cpuSingleKernelUsageRate,cpuSingleKernelUsageRateMax,memUsageRate,memUsageRateMax,freeDiskSpaceInt,freeDiskSpaceIntMin,diagnosisEmailTime*Integer.parseInt(SERVER_CHECK_TIME)/1440.0);
                 this.serverErrorAppearenceTime+=1;
             }
         }
@@ -319,9 +319,9 @@ public class TaskJobs {
      * @param freeDiskSpaceIntMin
      * @param diagnosisEmailTimeDay
      */
-    private void dbAppServerAlarm (PropertiesUtil propertiesUtil,double cpuSingleKernelUsageRate, double cpuSingleKernelUsageRateMax, double memUsageRate, double memUsageRateMax, int freeDiskSpaceInt, int freeDiskSpaceIntMin, double diagnosisEmailTimeDay) {
+    private void dbAppServerAlarm (PropertiesUtil propertiesUtil,String server,double cpuSingleKernelUsageRate, double cpuSingleKernelUsageRateMax, double memUsageRate, double memUsageRateMax, int freeDiskSpaceInt, int freeDiskSpaceIntMin, double diagnosisEmailTimeDay) {
         if (propertiesUtil.readValue(PropertyLabel.MAIL_ENABLE_KEY).equals(PropertyLabel.MAIL_ENABLE_YES)) {
-            String subject = "R-CLOUD 应用服务器";
+            String subject = "R-CLOUD "+server+"服务器";
             if (cpuSingleKernelUsageRate > cpuSingleKernelUsageRateMax) {
                 subject += "CPU使用率过高；";
             }
