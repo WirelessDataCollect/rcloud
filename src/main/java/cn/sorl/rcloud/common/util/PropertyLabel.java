@@ -6,7 +6,7 @@ package cn.sorl.rcloud.common.util;
  * @date 2019-12-11
  */
 public class PropertyLabel {
-    public static final String PROPERTIES_FILE_ADDR = "/etc/rcloud_configuration.properties";
+    public static final String PROPERTIES_FILE_ADDR = "/usr/local/rcloud/rcloud_configuration.properties";
 
     public static final String MAIL_ENABLE_KEY = "mail.enable";
     public static final String MAIL_ENABLE_YES = "yes";
