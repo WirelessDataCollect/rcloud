@@ -17,6 +17,7 @@ public class PropertyLabel {
     public static final String MAIL_SMTP_HOST_KEY = "mail.smtp.host";
     public static final String MAIL_USER_KEY = "mail.user";
     public static final String MAIL_SMTP_AUTH_KEY = "mail.smtp.auth";
+    public static final String MAIL_SMTP_PORT_KEY = "mail.smtp.port";
 
 
     public static final String SERVER_DISK_MINIMUM_G_KEY = "server.disk.minimumG";

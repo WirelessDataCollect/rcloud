@@ -20,6 +20,7 @@ import javax.mail.internet.MimeMessage;
  */
 public class EmailSender {
     private static final Logger logger = LoggerFactory.getLogger(EmailSender.class);
+    private static final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
     private PropertiesUtil propertiesUtil;
     Properties props = new Properties();
 
@@ -40,6 +41,9 @@ public class EmailSender {
             props.put(PropertyLabel.MAIL_SMTP_HOST_KEY,propertiesUtil.readValue(PropertyLabel.MAIL_SMTP_HOST_KEY));
             props.put(PropertyLabel.MAIL_USER_KEY,propertiesUtil.readValue(PropertyLabel.MAIL_USER_KEY));
             props.put(PropertyLabel.MAIL_PASSWORD_KEY,propertiesUtil.readValue(PropertyLabel.MAIL_PASSWORD_KEY));
+            props.put(PropertyLabel.MAIL_SMTP_PORT_KEY,propertiesUtil.readValue(PropertyLabel.MAIL_SMTP_PORT_KEY));
+            props.put("mail.smtp.socketFactory.class", SSL_FACTORY);
+            props.put("mail.smtp.socketFactory.fallback", "false");
         } catch (Exception e) {
             logger.error("",e);
         }

@@ -270,6 +270,10 @@ public class SimpleMgd {
             // 需要开启用户登录
             if (propertiesUtil.readValue(PropertyLabel.DB_MONGODB_ADMIN_ENABLE_KEY).equals(PropertyLabel.DB_MONGODB_ADMIN_ENABLE_YES)) {
                 password = propertiesUtil.readValue(PropertyLabel.DB_MONGODB_PASSWORD);
+                // @必须替换为url
+                password = password.replaceAll("@","%40");
+                // :必须替换为url
+                password = password.replaceAll(":","%3A");
                 adminDb = propertiesUtil.readValue(PropertyLabel.DB_MONGODB_ADMIN_DB_KEY);
                 sURI = String.format("mongodb://%s:%s@%s:%d/%s", user, password, mgdAddr, port,adminDb);
             } else {
