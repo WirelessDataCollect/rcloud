@@ -7,7 +7,7 @@ MAINTAINER ruili
 # 添加jar
 ADD *.jar app.jar
 # 声明运行时容器提供服务端口，这只是一个声明，在运行时并不会因为这个声明应用就会开启这个端口的服务
-EXPOSE 9099
+EXPOSE 5001 8089
 
 # 指定容器启动程序及参数   <ENTRYPOINT> "<CMD>"
 ENTRYPOINT ["java","-Xmx2048m","-Duser.timezone=GMT+08","-jar","/app.jar"]
