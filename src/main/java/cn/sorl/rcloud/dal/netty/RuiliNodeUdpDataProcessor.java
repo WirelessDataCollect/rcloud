@@ -83,7 +83,8 @@ public class RuiliNodeUdpDataProcessor {
             return;
         }
         byte[] byteRawData = new byte[msg.readableBytes()];
-        msg.readBytes(byteRawData);//读取msg，写入到byteRawData
+        //读取msg，写入到byteRawData
+        msg.readBytes(byteRawData);
         Document doc = new Document(RuiliDatadbSegment.MONGODB_KEY_NODE_ID,nodeId)//该包的节点
                 .append(RuiliDatadbSegment.MONGODB_KEY_YYYYMMDD, yyyy_mm_dd)//改包的年月日
                 .append(RuiliDatadbSegment.MONGODB_KEY_HEADTIME,headtime)//改包的起始时间

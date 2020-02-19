@@ -55,13 +55,16 @@ public class RuiliPcHandlerTask implements Runnable{
      * 启动TCP监听
      */
     private void runTcp(){
-        EventLoopGroup bossGroup = new NioEventLoopGroup();        // 用来接收进来的连接，这个函数可以设置多少个线程
-        EventLoopGroup workerGroup = new NioEventLoopGroup();    // 用来处理已经被接收的连接
+        // 用来接收进来的连接，这个函数可以设置多少个线程
+        EventLoopGroup bossGroup = new NioEventLoopGroup();
+        // 用来处理已经被接收的连接
+        EventLoopGroup workerGroup = new NioEventLoopGroup();
 
         try {
             ServerBootstrap b = new ServerBootstrap();
             b.group(bossGroup, workerGroup)
-                    .channel(NioServerSocketChannel.class)            // 这里告诉Channel如何接收新的连接
+                    // 这里告诉Channel如何接收新的连接
+                    .channel(NioServerSocketChannel.class)
                     .childHandler( new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {//起初ch的pipeline会分配一个RunPcServer的出/入站处理器（初始化完成后删除）
@@ -78,7 +81,8 @@ public class RuiliPcHandlerTask implements Runnable{
                     .childOption(ChannelOption.SO_KEEPALIVE, true);
 
             // 绑定端口，开始接收进来的连接
-            ChannelFuture cf = b.bind(listenPort).sync();//在bind后，创建一个ServerChannel，并且该ServerChannel管理了多个子Channel
+            //在bind后，创建一个ServerChannel，并且该ServerChannel管理了多个子Channel
+            ChannelFuture cf = b.bind(listenPort).sync();
             // 等待服务器socket关闭
             ch = cf.channel();
             ch.closeFuture().sync();

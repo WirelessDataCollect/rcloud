@@ -36,17 +36,17 @@ public class RuiliNodeUdpHandler extends SimpleChannelInboundHandler<DatagramPac
     @Override
     protected synchronized void channelRead0(ChannelHandlerContext ctx, DatagramPacket msg){
         //如果数字超过了127,则会变成负数为了解决这个问题需要用getUnsignedByte
+        // temp和msg内的ByteBuff是同一个，调用channelRead0的会将这个ByteBuff release掉
         ByteBuf temp = msg.content();
         try{
             //是否实时转发给上位机
-            RuiliPcTcpHandler.send2Pc(temp.retain());
-            assert temp.refCnt() == 1;
+            RuiliPcTcpHandler.send2Pc(temp);
             //解析数据
             processor.dataProcess(temp);
-            assert temp.refCnt() == 0;
             countTask.incPacksNum();
         }catch (Exception e){
             logger.error("", e);
+        }finally {
         }
 
     }
