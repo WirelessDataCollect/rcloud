@@ -1,6 +1,11 @@
 package cn.sorl.rcloud.dal.netty;
 
-public class RuiliNodeUdpAttr {
+/**
+ * Data Collection Node Attribution
+ * @author Charles Song
+ * @date 2020-4-13
+ */
+public class RCloudNodeAttr {
     /**
      * 一组ADC数据有多少个Byte，共4个通道，每个通道2个bytes
      */
@@ -82,6 +87,4 @@ public class RuiliNodeUdpAttr {
      * 测试名称紧接着time io等
      */
     public final static int TEST_NAME_IDX = PACKAGE_TIME_IO_LENGTH;
-
-
 }
