@@ -43,5 +43,6 @@ public class PropertyLabel {
     public static final String SERVER_CPU_USAGE_RAGE_15MIN_KEY ="server.cpu.usagerate.15min";
     public static final String SERVER_CPU_LOGICAL_KERNEL_NUM_KEY="server.cpu.logicalKernel.num";
     public static final String SERVER_DISK_FREE_SPACE_G_KEY="server.disk.freeSpaceG";
-    public static final String SERVRE_MEM_USAGE_RATE_KEY="server.mem.usagerate";
+    public static final String SERVER_MEM_USAGE_RATE_KEY="server.mem.usagerate";
+    public static final String SERVER_NODE_PORT_PROTOCAL="server.node.proto";
 }

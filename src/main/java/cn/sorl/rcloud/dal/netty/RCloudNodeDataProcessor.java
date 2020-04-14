@@ -8,6 +8,7 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.async.SingleResultCallback;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
+import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.CharsetUtil;
 import org.bson.Document;
 import org.slf4j.Logger;
@@ -23,7 +24,7 @@ import org.slf4j.LoggerFactory;
  * @date    2020-4-13
  * @version 0.0.1
  */
-public class RCloudNodeDataProcessor {
+public class RCloudNodeDataProcessor  extends ChannelInboundHandlerAdapter {
     private int BytebufLength;
     private short checkUbyte;
     private short nodeId;

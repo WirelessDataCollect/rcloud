@@ -292,7 +292,7 @@ public class TaskJobs {
         }else if(this.serverErrorAppearenceTime == 0) {
             int freeDiskSpaceInt = Integer.parseInt(serverPropUtil.readValue(PropertyLabel.SERVER_DISK_FREE_SPACE_G_KEY));
             int freeDiskSpaceIntMin = Integer.parseInt(propertiesUtil.readValue(PropertyLabel.SERVER_DISK_MINIMUM_G_KEY));
-            double memUsageRate = Double.parseDouble(serverPropUtil.readValue(PropertyLabel.SERVRE_MEM_USAGE_RATE_KEY));
+            double memUsageRate = Double.parseDouble(serverPropUtil.readValue(PropertyLabel.SERVER_MEM_USAGE_RATE_KEY));
             double memUsageRateMax = Double.parseDouble(propertiesUtil.readValue(PropertyLabel.SERVER_MEM_MAX_USAGE_KEY));
             // 获取单个CPU核的使用率
             double cpuAllKernelUsage = Double.parseDouble(serverPropUtil.readValue(PropertyLabel.SERVER_CPU_USAGE_RAGE_15MIN_KEY));
