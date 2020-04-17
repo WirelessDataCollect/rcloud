@@ -139,8 +139,13 @@ public class RuiliNodeHandlerTask implements Runnable{
 
     @Override
     public void run() {
-        logger.info(String.format("Listen port for nodes: %d", listenPort));
-        runUdp(listenPort);
+        logger.info(String.format("Listen port for nodes: %d ; Protocal : %s", listenPort, proto));
+        if (proto.equals(RuiliNodeHandlerTask.PROTOCAL_UDP)) {
+            runUdp(listenPort);
+        } else if (proto.equals(RuiliNodeHandlerTask.PROTOCAL_TCP)){
+            runTcp(listenPort);
+        }
+
     }
     public void start () {
         logger.info("Starting " +  this.threadName);

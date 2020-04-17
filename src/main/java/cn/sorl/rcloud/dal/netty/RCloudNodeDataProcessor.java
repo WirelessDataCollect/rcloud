@@ -77,7 +77,7 @@ public class RCloudNodeDataProcessor  extends ChannelInboundHandlerAdapter {
                 @Override
                 public void onResult(final Void result, final Throwable t) {
                     ///用于指示DOC是否成功插入
-//			    	logger.info("Document inserted!");
+			    	logger.info("Document inserted!");
                 }});
         }catch(Exception e) {
             logger.error("", e);
