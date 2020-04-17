@@ -184,7 +184,7 @@ public class SimpleMgd {
      * @param document
      * @param callback
      */
-    public synchronized void insertOne(Document document, SingleResultCallback<Void> callback)
+    public void insertOne(Document document, SingleResultCallback<Void> callback)
             throws MongoException {
         try{
             this.collection.insertOne(document, callback);

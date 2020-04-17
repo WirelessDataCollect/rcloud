@@ -83,6 +83,8 @@ public class RCloudNodeAttr {
      * ADC数据String标记
      */
     public static final String ADC_DATA_PACKAGE_STR = "ADC";
+
+    public static final String DATA_PACKAGE_TYPE_NOT_CLEAR_STR = "DEFAULT";
     /**
      * 测试名称紧接着time io等
      */

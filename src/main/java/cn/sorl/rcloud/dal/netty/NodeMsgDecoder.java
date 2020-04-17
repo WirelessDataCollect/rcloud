@@ -3,6 +3,8 @@ package cn.sorl.rcloud.dal.netty;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -48,6 +50,7 @@ import java.util.List;
  * @date 2020-4-14
  */
 public class NodeMsgDecoder extends ByteToMessageDecoder {
+    private static final Logger logger = LoggerFactory.getLogger(NodeMsgDecoder.class);
     @Override
     protected void decode (ChannelHandlerContext ctx, ByteBuf buffer,
                            List<Object> out) throws Exception {
@@ -56,7 +59,7 @@ public class NodeMsgDecoder extends ByteToMessageDecoder {
         SimpleDateFormat sdfDD = new SimpleDateFormat("dd");
 
         Date date = new Date();
-        int yyddmm = Integer.parseInt(sdfYYYY.format(date)) << 16 +
+        int yymd = Integer.parseInt(sdfYYYY.format(date)) << 16 +
                 Integer.parseInt(sdfMM.format(date)) << 8+
                 Integer.parseInt(sdfDD.format(date));
         // 基本长度
@@ -69,8 +72,7 @@ public class NodeMsgDecoder extends ByteToMessageDecoder {
                 // 标记包头开始的index
                 buffer.markReaderIndex();
                 // 协议开始
-                if (buffer.readInt() == yyddmm) {
-
+                if (buffer.readInt() == yymd) {
                     break;
                 }
                 // 未读到包头，略过一个字节
@@ -85,21 +87,47 @@ public class NodeMsgDecoder extends ByteToMessageDecoder {
                     return;
                 }
             }
-            // 消息的长度
-            int length = buffer.readInt();
+            // 时间
+            long timer = buffer.readUnsignedInt();
+            // 数据个数
+            int count = buffer.readInt();
+            // node id
+            short id = buffer.readUnsignedByte();
+            // io电平
+            short io = buffer.readUnsignedByte();
+            // 数据类型，ADC或者CAN
+            short type = buffer.readUnsignedByte();
+            // 检查
+            short check = buffer.readUnsignedByte();
+            short byte0Mask = 0xff;
+            if (check != (short)(timer & byte0Mask)) {
+                logger.info("Pkg Abandoned : check byte not correct!");
+                return;
+            }
+            // 测试名称
+            char[] nameChar = new char[RCloudNodeAttr.MAX_TEST_NAME];
+            for (int i = 0 ; i < RCloudNodeAttr.MAX_TEST_NAME; i ++) {
+                nameChar[i] = (char) buffer.readByte();
+            }
+            String testName = String.copyValueOf(nameChar);
             // 判断请求数据包数据是否到齐
-            if (buffer.readableBytes() < length) {
+            if (buffer.readableBytes() < count) {
                 // 还原读指针
                 buffer.readerIndex(beginReader);
                 return;
             }
 
             // 读取data数据
-            byte[] data = new byte[length];
+            byte[] data = new byte[count];
+            buffer.readBytes(data);
+            // 重置
+            buffer.resetReaderIndex();
+            // 获取raw data
+            byte[] rawData = new byte[count + RCloudNodeAttr.HEAD_FRAME_LENGTH];
             buffer.readBytes(data);
 
-//            SmartCarProtocol protocol = new SmartCarProtocol(data.length, data);
-//            out.add(protocol);
+            NodeMsg nodeMsg = new NodeMsg(yymd, timer, count, id, io, type, check, testName, data, rawData);
+            out.add(nodeMsg);
         }
     }
 }
