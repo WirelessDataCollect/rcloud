@@ -115,7 +115,7 @@ public class RuiliNodeHandlerTask implements Runnable{
                             SimpleMgd adminMgd = BeanContext.context.getBean("adminMgd",SimpleMgd.class);
                             SimpleMgd generalMgd = BeanContext.context.getBean("generalMgd",SimpleMgd.class);
                             // 自定义处理类
-                            ch.pipeline().addLast(new NodeMsgDecoder())//换行解码器
+                            ch.pipeline().addLast(new NodeMsgDecoder())//解码器
                                     .addLast(new RCloudNodeDataProcessor(BeanContext.context.getBean("dataMgd", SimpleMgd.class)));//如果需要继续添加与之链接的handler，则再次调用addLast即可
                         }//完成初始化后，删除RunPcServer出/入站处理器
                     })

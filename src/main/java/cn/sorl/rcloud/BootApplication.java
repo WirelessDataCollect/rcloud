@@ -8,6 +8,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 //@EnableAutoConfiguration  @ComponentScan和@Configuration
 @SpringBootApplication
 @EnableScheduling
@@ -23,5 +26,6 @@ public class BootApplication {
         RuiliNodeHandlerTask ruiliNodeHandlerTask = new RuiliNodeHandlerTask(5001, "Node-Thread");
         RuiliPcHandlerTask ruiliPcHandlerTask = new RuiliPcHandlerTask(8089, "Pc-Thread", "\t");
         ruiliNodeHandlerTask.start();ruiliPcHandlerTask.start();
+
     }
 }

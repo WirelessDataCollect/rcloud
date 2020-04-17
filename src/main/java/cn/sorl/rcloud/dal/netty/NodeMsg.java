@@ -50,4 +50,12 @@ public class NodeMsg implements Serializable {
         this.setByteRawData(rawData);
         this.setIsotime((testName.split("/",2))[1]);
     }
+
+    @Override
+    public String toString() {
+        String str ;
+        str = String.format("yymd : %d, timer : %d, count : %d, id : %d, io : %d, type : %s, check : %d, tstName : %s, isotime : %s",
+                yymd,timer, count, id, io, type, check, tstName, isotime);
+        return str;
+    }
 }

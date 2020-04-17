@@ -54,14 +54,8 @@ public class NodeMsgDecoder extends ByteToMessageDecoder {
     @Override
     protected void decode (ChannelHandlerContext ctx, ByteBuf buffer,
                            List<Object> out) throws Exception {
-        SimpleDateFormat sdfYYYY = new SimpleDateFormat("yyyy");
-        SimpleDateFormat sdfMM = new SimpleDateFormat("MM");
-        SimpleDateFormat sdfDD = new SimpleDateFormat("dd");
 
-        Date date = new Date();
-        int yymd = Integer.parseInt(sdfYYYY.format(date)) << 16 +
-                Integer.parseInt(sdfMM.format(date)) << 8+
-                Integer.parseInt(sdfDD.format(date));
+        int yymd = genYymd();
         // 基本长度
         if (buffer.readableBytes() > RCloudNodeAttr.HEAD_FRAME_LENGTH) {
             // 记录包头开始的index
@@ -83,7 +77,7 @@ public class NodeMsgDecoder extends ByteToMessageDecoder {
                 // 当略过，一个字节之后，
                 // 数据包的长度，又变得不满足
                 // 此时，应该结束。等待后面的数据到达
-                if (buffer.readableBytes() < RCloudNodeAttr.HEAD_FRAME_LENGTH) {
+                if (buffer.readableBytes() < RCloudNodeAttr.HEAD_FRAME_LENGTH - RCloudNodeAttr.HEADTIME_START_IDX) {
                     return;
                 }
             }
@@ -124,10 +118,22 @@ public class NodeMsgDecoder extends ByteToMessageDecoder {
             buffer.resetReaderIndex();
             // 获取raw data
             byte[] rawData = new byte[count + RCloudNodeAttr.HEAD_FRAME_LENGTH];
-            buffer.readBytes(data);
+            buffer.readBytes(rawData);
 
             NodeMsg nodeMsg = new NodeMsg(yymd, timer, count, id, io, type, check, testName, data, rawData);
             out.add(nodeMsg);
         }
+    }
+
+    public static int genYymd () {
+        SimpleDateFormat sdfYYYY = new SimpleDateFormat("yyyy");
+        SimpleDateFormat sdfMM = new SimpleDateFormat("MM");
+        SimpleDateFormat sdfDD = new SimpleDateFormat("dd");
+
+        Date date = new Date();
+        int yymd = Integer.parseInt(sdfYYYY.format(date)) << 16 |
+                Integer.parseInt(sdfMM.format(date)) << 8 |
+                Integer.parseInt(sdfDD.format(date));
+        return yymd;
     }
 }

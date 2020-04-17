@@ -57,6 +57,7 @@ public class RCloudNodeDataProcessor  extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         NodeMsg nodeMsg = (NodeMsg) msg;
+        logger.info("NodeMsg : " + nodeMsg.toString());
         short io1 = (short) (nodeMsg.getIo() & 0x01);
         short io2 = (short) (nodeMsg.getIo() & 0x02);
         Document doc = new Document(RuiliDatadbSegment.MONGODB_KEY_NODE_ID,nodeMsg.getId())//该包的节点
