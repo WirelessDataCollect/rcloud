@@ -48,7 +48,7 @@ public class NodeMsg implements Serializable {
         this.setTstName(testName);
         this.setData(data);
         this.setByteRawData(rawData);
-        this.setIsotime((testName.split("/",2))[1]);
+        this.setIsotime((testName.split("[/_]",2))[1]);
     }
 
     @Override

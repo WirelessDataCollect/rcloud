@@ -1,6 +1,8 @@
 package cn.sorl.rcloud.dal.netty;
 
 import cn.sorl.rcloud.common.time.TimeUtils;
+import cn.sorl.rcloud.common.util.PropertiesUtil;
+import cn.sorl.rcloud.common.util.PropertyLabel;
 import cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd;
 import cn.sorl.rcloud.dal.mongodb.mgdpo.RuiliDatadbSegment;
 import com.mongodb.BasicDBList;
@@ -45,12 +47,18 @@ public class RCloudNodeDataProcessor  extends ChannelInboundHandlerAdapter {
     /**
      * 最大通道通道数目
      */
-    private final static int MAX_CHANNEL_NUM = 1000;
+    private int MAX_CHANNEL_NUM;
 
     private static final Logger logger = LoggerFactory.getLogger(RCloudNodeDataProcessor.class);
 
     public RCloudNodeDataProcessor (SimpleMgd dataMgd) {
-        this.dataMgd = dataMgd;
+        try {
+            this.dataMgd = dataMgd;
+            PropertiesUtil propertiesUtil = new PropertiesUtil(PropertyLabel.PROPERTIES_FILE_ADDR);
+            MAX_CHANNEL_NUM = Integer.parseInt(propertiesUtil.readValue(PropertyLabel.SERVER_NODE_CONNECT_NUM));
+        } catch (Exception e) {
+            logger.error("",e);
+        }
     }
 
 
@@ -91,7 +99,7 @@ public class RCloudNodeDataProcessor  extends ChannelInboundHandlerAdapter {
         logger.info(String.format("Node %s connected!",ctx.channel().remoteAddress()));
 
         // 连接的节点过多
-        if (nodeChMap.size() > RCloudNodeDataProcessor.MAX_CHANNEL_NUM) {
+        if (nodeChMap.size() > this.MAX_CHANNEL_NUM) {
             channelInactive(ctx);
             return;
         }

@@ -2,6 +2,8 @@ package cn.sorl.rcloud.dal.netty;
 
 import cn.sorl.rcloud.common.security.SimpleSaltMd5;
 import cn.sorl.rcloud.common.time.TimeUtils;
+import cn.sorl.rcloud.common.util.PropertiesUtil;
+import cn.sorl.rcloud.common.util.PropertyLabel;
 import cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd;
 import cn.sorl.rcloud.dal.mongodb.mgdpo.RuiliAdmindbSegment;
 import cn.sorl.rcloud.dal.mongodb.mgdpo.RuiliDatadbSegment;
@@ -24,7 +26,6 @@ import org.bson.types.Binary;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.naming.Context;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -49,7 +50,7 @@ public class RuiliPcTcpHandler extends ChannelInboundHandlerAdapter {
     //用户信息数据库
     private SimpleMgd generalMgd;
     //限制连接
-    private final static int MAX_CHANNEL_NUM = 50;
+    private int MAX_CHANNEL_NUM;
 
     private static final Logger logger = LoggerFactory.getLogger(RuiliPcTcpHandler.class);
 
@@ -62,10 +63,16 @@ public class RuiliPcTcpHandler extends ChannelInboundHandlerAdapter {
      * @param general_mgd general mongodb
      */
     public RuiliPcTcpHandler(SimpleMgd data_mgd, SimpleMgd info_mgd, SimpleMgd admin_mgd, SimpleMgd general_mgd){
-        this.infoMgd = info_mgd;
-        this.dataMgd = data_mgd;
-        this.adminMgd = admin_mgd;
-        this.generalMgd = general_mgd;
+        try {
+            this.infoMgd = info_mgd;
+            this.dataMgd = data_mgd;
+            this.adminMgd = admin_mgd;
+            this.generalMgd = general_mgd;
+            PropertiesUtil propertiesUtil = new PropertiesUtil(PropertyLabel.PROPERTIES_FILE_ADDR);
+            MAX_CHANNEL_NUM = Integer.parseInt(propertiesUtil.readValue(PropertyLabel.SERVER_CLIENT_CONNECT_NUM));
+        } catch (Exception e) {
+            logger.error("",e);
+        }
 
     }
     /**
@@ -589,7 +596,7 @@ public class RuiliPcTcpHandler extends ChannelInboundHandlerAdapter {
         ctx.channel().config().setWriteBufferHighWaterMark(50*1024*1024);//50MB
         logger.info(String.format("PC %s connected!",ctx.channel().remoteAddress()));
         //通道数过多
-        if(RuiliPcTcpHandler.pcChMap.size() > RuiliPcTcpHandler.MAX_CHANNEL_NUM) {
+        if(RuiliPcTcpHandler.pcChMap.size() > this.MAX_CHANNEL_NUM) {
             channelInactive(ctx);//关闭通道
             return;
         }
