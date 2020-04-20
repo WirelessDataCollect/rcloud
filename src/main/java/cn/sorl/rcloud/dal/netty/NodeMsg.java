@@ -45,10 +45,12 @@ public class NodeMsg implements Serializable {
             this.setType(RCloudNodeAttr.DATA_PACKAGE_TYPE_NOT_CLEAR_STR);
         }
         this.setCheck(check);
+        // 去掉尾部的0
+        testName = testName.trim();
         this.setTstName(testName);
         this.setData(data);
         this.setByteRawData(rawData);
-        this.setIsotime((testName.split("[/_]",2))[1]);
+        this.setIsotime((testName.split("/",2))[1]);
     }
 
     @Override

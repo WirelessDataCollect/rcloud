@@ -19,6 +19,8 @@ import java.util.List;
  * +------+-------+-----+-------+------+-----+-----+-------+-------+---------+------------+
  *   0：1     2      3     4:7     8:11   12    13     14     15      16：79    80：...
  *
+ * 00 00 00 00 10 10 10 10 00 00 00 00 01 02 02 10 44 65 66 75 61 6c 74 54 65 73 74 2f 32 30 32 30 3a 30 34 3a 30 34 54 31 32 3a 30 30 3a 30 31 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+ *
  * TO：传输开始，字符
  * Year：年
  * Month：月
@@ -56,7 +58,8 @@ public class NodeMsgDecoder extends ByteToMessageDecoder {
                            List<Object> out) throws Exception {
         // 基本长度
         if (buffer.readableBytes() > RCloudNodeAttr.HEAD_FRAME_LENGTH) {
-            int yymd = genYymd();
+//            int yymd = genYymd();
+            int yymd = 0;
             // 记录包头开始的index
             int beginReader;
             while (true) {
@@ -104,7 +107,7 @@ public class NodeMsgDecoder extends ByteToMessageDecoder {
             for (int i = 0 ; i < RCloudNodeAttr.MAX_TEST_NAME; i ++) {
                 nameChar[i] = (char) buffer.readByte();
             }
-            String testName = String.copyValueOf(nameChar);
+            String testName = String.copyValueOf(nameChar).trim();
             // 判断请求数据包数据是否到齐
             if (buffer.readableBytes() < count) {
                 // 还原读指针
