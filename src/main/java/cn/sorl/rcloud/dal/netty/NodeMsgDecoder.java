@@ -14,12 +14,24 @@ import java.util.List;
  * 设备数据协议<br/>
  * <pre>
  * 数据包格式
+ *
+ * 大端模式
  * +------+-------+-----+-------+-------+-----+-----+------+-------+---------+------------+
  * | Year | Month | Day | Timer | Count | Id  | IO  | Type | Check | TstName |    Data    |
  * +------+-------+-----+-------+------+-----+-----+-------+-------+---------+------------+
  *   0：1     2      3     4:7     8:11   12    13     14     15      16：79    80：...
  *
- * 00 00 00 00 10 10 10 10 00 00 00 00 01 02 02 10 44 65 66 75 61 6c 74 54 65 73 74 2f 32 30 32 30 3a 30 34 3a 30 34 54 31 32 3a 30 30 3a 30 31 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+ * count= 0 : 00 00 00 00 10 10 10 10 00 00 00 00 01 02 02 10 44 65 66 75 61 6c 74 54 65 73 74 2f 32 30 32 30 3a 30 34 3a 30 34 54 31 32 3a 30 30 3a 30 31 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+ *
+ * count = 96 : 00 00 00 01 00 00 10 10 00 00 00 60 01 02 02 10 44 65 66 75 61 6c 74 54 65 73 74 2f 32 30 32 30 3a 30 34 3a 30 34 54 31 32 3a 30 30 3a 30 31 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 12 13 10 10 12 12 32 32 12 13 10 10 12 12 32 32 12 13 10 10 12 12 32 32 12 13 10 10 12 12 32 32 12 13 10 10 12 12 32 32 12 13 10 10 12 12 32 32 12 13 10 10 12 12 32 32 12 13 10 10 12 12 32 32 12 13 10 10 12 12 32 32 12 13 10 10 12 12 32 32 12 13 10 10 12 12 32 32 12 13 10 10 12 12 32 32
+ *
+ * 小端模式(采用的方案)
+ *  +------+-------+-----+-------+-------+-----+-----+------+-------+---------+------------+
+ *  | Day  | Month | Year| Timer | Count | Id  | IO  | Type | Check | TstName |    Data    |
+ *  +------+-------+-----+-------+------+-----+-----+-------+-------+---------+------------+
+ *    0      1      2:3     4:7     8:11   12    13     14     15      16：79    80：...
+ *
+ *  count = 96 : 01 00 00 00 10 10 00 00 60 00 00 00 01 02 02 10 44 65 66 75 61 6c 74 54 65 73 74 2f 32 30 32 30 3a 30 34 3a 30 34 54 31 32 3a 30 30 3a 30 31 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 12 13 10 10 12 12 32 32 12 13 10 10 12 12 32 32 12 13 10 10 12 12 32 32 12 13 10 10 12 12 32 32 12 13 10 10 12 12 32 32 12 13 10 10 12 12 32 32 12 13 10 10 12 12 32 32 12 13 10 10 12 12 32 32 12 13 10 10 12 12 32 32 12 13 10 10 12 12 32 32 12 13 10 10 12 12 32 32 12 13 10 10 12 12 32 32
  *
  * TO：传输开始，字符
  * Year：年
@@ -53,13 +65,14 @@ import java.util.List;
  */
 public class NodeMsgDecoder extends ByteToMessageDecoder {
     private static final Logger logger = LoggerFactory.getLogger(NodeMsgDecoder.class);
+    public static final boolean BIG_ENDIAN = false;
     @Override
     protected void decode (ChannelHandlerContext ctx, ByteBuf buffer,
                            List<Object> out) throws Exception {
         // 基本长度
         if (buffer.readableBytes() > RCloudNodeAttr.HEAD_FRAME_LENGTH) {
-//            int yymd = genYymd();
-            int yymd = 0;
+            int yymd = genYymd();
+//            int yymd = 1;
             // 记录包头开始的index
             int beginReader;
             while (true) {
@@ -68,7 +81,15 @@ public class NodeMsgDecoder extends ByteToMessageDecoder {
                 // 标记包头开始的index
                 buffer.markReaderIndex();
                 // 协议开始
-                if (buffer.readInt() == yymd) {
+                int yymdBuff;
+                // 大小端模式选择
+                if (BIG_ENDIAN) {
+                    yymdBuff = buffer.readInt();
+                } else {
+                    yymdBuff = buffer.readIntLE();
+                }
+                // 相差不超过1天
+                if (yymdBuff - yymd <= 1) {
                     break;
                 }
                 // 未读到包头，略过一个字节
@@ -86,9 +107,20 @@ public class NodeMsgDecoder extends ByteToMessageDecoder {
                 }
             }
             // 时间
-            long timer = buffer.readUnsignedInt();
+            int timer;
+            if (BIG_ENDIAN) {
+                timer = buffer.readInt();
+            } else {
+                timer = buffer.readIntLE();
+            }
+
             // 数据个数
-            int count = buffer.readInt();
+            int count;
+            if (BIG_ENDIAN) {
+                count = buffer.readInt();
+            } else {
+                count = buffer.readIntLE();
+            }
             // node id
             short id = buffer.readUnsignedByte();
             // io电平
@@ -134,14 +166,15 @@ public class NodeMsgDecoder extends ByteToMessageDecoder {
     }
 
     public static int genYymd () {
-        SimpleDateFormat sdfYYYY = new SimpleDateFormat("yyyy");
-        SimpleDateFormat sdfMM = new SimpleDateFormat("MM");
-        SimpleDateFormat sdfDD = new SimpleDateFormat("dd");
+        SimpleDateFormat sdfYy = new SimpleDateFormat("yyyy");
+        SimpleDateFormat sdfM = new SimpleDateFormat("MM");
+        SimpleDateFormat sdfD = new SimpleDateFormat("dd");
 
         Date date = new Date();
-        int yymd = Integer.parseInt(sdfYYYY.format(date)) << 16 |
-                Integer.parseInt(sdfMM.format(date)) << 8 |
-                Integer.parseInt(sdfDD.format(date));
+        int yymd;
+        yymd = Integer.parseInt(sdfYy.format(date)) << 16 |
+                Integer.parseInt(sdfM.format(date)) << 8 |
+                Integer.parseInt(sdfD.format(date));
         return yymd;
     }
 }
