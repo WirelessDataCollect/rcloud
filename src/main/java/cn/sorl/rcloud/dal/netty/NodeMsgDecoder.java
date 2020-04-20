@@ -54,10 +54,9 @@ public class NodeMsgDecoder extends ByteToMessageDecoder {
     @Override
     protected void decode (ChannelHandlerContext ctx, ByteBuf buffer,
                            List<Object> out) throws Exception {
-
-        int yymd = genYymd();
         // 基本长度
         if (buffer.readableBytes() > RCloudNodeAttr.HEAD_FRAME_LENGTH) {
+            int yymd = genYymd();
             // 记录包头开始的index
             int beginReader;
             while (true) {
@@ -116,8 +115,8 @@ public class NodeMsgDecoder extends ByteToMessageDecoder {
             // 读取data数据
             byte[] data = new byte[count];
             buffer.readBytes(data);
-            // 重置
-            buffer.resetReaderIndex();
+            // 重置为开始的位置
+            buffer.readerIndex(beginReader);
             // 获取raw data
             int totalNum = count + RCloudNodeAttr.HEAD_FRAME_LENGTH;
             byte[] rawData = new byte[totalNum];
