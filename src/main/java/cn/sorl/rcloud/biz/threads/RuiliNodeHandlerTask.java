@@ -4,22 +4,23 @@ import cn.sorl.rcloud.biz.beanconfig.BeanContext;
 import cn.sorl.rcloud.common.util.PropertiesUtil;
 import cn.sorl.rcloud.common.util.PropertyLabel;
 import cn.sorl.rcloud.dal.mongodb.mgdobj.SimpleMgd;
-import cn.sorl.rcloud.dal.netty.NodeMsgDecoder;
-import cn.sorl.rcloud.dal.netty.RCloudNodeDataProcessor;
-import cn.sorl.rcloud.dal.netty.RuiliNodeUdpDataProcessor;
-import cn.sorl.rcloud.dal.netty.RuiliNodeUdpHandler;
+import cn.sorl.rcloud.dal.netty.*;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.buffer.Unpooled;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.DatagramChannel;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioDatagramChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import io.netty.handler.codec.DelimiterBasedFrameDecoder;
+import org.apache.commons.lang3.concurrent.BasicThreadFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -97,6 +98,11 @@ public class RuiliNodeHandlerTask implements Runnable{
      * @param port 面向设备的端口
      */
     private void runTcp (int port) {
+
+        // 启动计数
+        ScheduledExecutorService countService = new ScheduledThreadPoolExecutor(1,
+                new BasicThreadFactory.Builder().namingPattern("Tcp-Stream-Counter-%d").daemon(true).build());
+        countService.scheduleAtFixedRate(RCloudStreamCountTask.getInstance(), 5, 5, TimeUnit.SECONDS);
         // 用来接收进来的连接，这个函数可以设置多少个线程
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         // 用来处理已经被接收的连接

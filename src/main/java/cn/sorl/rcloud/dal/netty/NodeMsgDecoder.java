@@ -73,6 +73,8 @@ public class NodeMsgDecoder extends ByteToMessageDecoder {
                 // 每次略过，一个字节，去读取，包头信息的开始标记
                 buffer.resetReaderIndex();
                 buffer.readByte();
+                // 计数器加1, 加到跳过的byte count中
+                RCloudStreamCountTask.incSkipedByteCount(1);
 
                 // 当略过，一个字节之后，
                 // 数据包的长度，又变得不满足
@@ -117,8 +119,12 @@ public class NodeMsgDecoder extends ByteToMessageDecoder {
             // 重置
             buffer.resetReaderIndex();
             // 获取raw data
-            byte[] rawData = new byte[count + RCloudNodeAttr.HEAD_FRAME_LENGTH];
+            int totalNum = count + RCloudNodeAttr.HEAD_FRAME_LENGTH;
+            byte[] rawData = new byte[totalNum];
             buffer.readBytes(rawData);
+
+            // inc the byte count
+            RCloudStreamCountTask.incUsefulByteCount(totalNum);
 
             NodeMsg nodeMsg = new NodeMsg(yymd, timer, count, id, io, type, check, testName, data, rawData);
             out.add(nodeMsg);
