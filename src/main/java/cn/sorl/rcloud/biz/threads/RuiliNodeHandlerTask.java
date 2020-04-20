@@ -17,7 +17,6 @@ import org.apache.commons.lang3.concurrent.BasicThreadFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -81,7 +80,8 @@ public class RuiliNodeHandlerTask implements Runnable{
                     .handler(new ChannelInitializer<DatagramChannel>() {
                         @Override
                         public void initChannel(DatagramChannel ch) throws Exception {
-                            ch.pipeline().addLast(new RuiliNodeUdpHandler(new RuiliNodeUdpDataProcessor(BeanContext.context.getBean("dataMgd", SimpleMgd.class))));
+                            SimpleMgd dataMgd = BeanContext.context.getBean("dataMgd",SimpleMgd.class);
+                            ch.pipeline().addLast(new RuiliNodeUdpHandler(new RuiliNodeUdpDataProcessor(dataMgd)));
                         }
                     });//业务处理类,其中包含一些回调函数
             ChannelFuture cf= bootstrap.bind(port).sync();
@@ -117,12 +117,9 @@ public class RuiliNodeHandlerTask implements Runnable{
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {//起初ch的pipeline会分配一个RunPcServer的出/入站处理器（初始化完成后删除）
                             SimpleMgd dataMgd = BeanContext.context.getBean("dataMgd",SimpleMgd.class);
-                            SimpleMgd infoMgd = BeanContext.context.getBean("infoMgd",SimpleMgd.class);
-                            SimpleMgd adminMgd = BeanContext.context.getBean("adminMgd",SimpleMgd.class);
-                            SimpleMgd generalMgd = BeanContext.context.getBean("generalMgd",SimpleMgd.class);
                             // 自定义处理类
                             ch.pipeline().addLast(new NodeMsgDecoder())//解码器
-                                    .addLast(new RCloudNodeDataProcessor(BeanContext.context.getBean("dataMgd", SimpleMgd.class)));//如果需要继续添加与之链接的handler，则再次调用addLast即可
+                                    .addLast(new RCloudNodeDataProcessor(dataMgd));
                         }//完成初始化后，删除RunPcServer出/入站处理器
                     })
                     .option(ChannelOption.SO_BACKLOG, 128)
@@ -130,7 +127,7 @@ public class RuiliNodeHandlerTask implements Runnable{
 
             // 绑定端口，开始接收进来的连接
             //在bind后，创建一个ServerChannel，并且该ServerChannel管理了多个子Channel
-            ChannelFuture cf = b.bind(listenPort).sync();
+            ChannelFuture cf = b.bind(port).sync();
             // 等待服务器socket关闭
             ch = cf.channel();
             ch.closeFuture().sync();
