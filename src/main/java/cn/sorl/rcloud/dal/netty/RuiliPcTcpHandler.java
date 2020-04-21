@@ -86,7 +86,7 @@ public class RuiliPcTcpHandler extends ChannelInboundHandlerAdapter {
             for(Iterator<Map.Entry<String,RuiliPcChannelAttr>> item = RuiliPcTcpHandler.getPcChMap().entrySet().iterator(); item.hasNext();) {
                 Map.Entry<String,RuiliPcChannelAttr> entry = item.next();
                 //判断是否为实时获取数据的状态,且和测试名称对应
-                if((entry.getValue().getStatus()==RuiliPcChannelAttr.DATA_GET_STA) && ((entry.getValue().getTestName().equals(testName)) || (entry.getValue().getTestName().equals("all")))) {
+                if((entry.getValue().getStatus()==RuiliPcChannelAttr.DATA_GET_STA) && ((entry.getValue().getTestName().equals(testName)) || (entry.getValue().getTestName().equals(RuiliPcCmdAttr.PC_GET_ALL_DATA_LABLE)))) {
                     //发送数据
                     if(entry.getValue().getContext().channel().isWritable()){
                         entry.getValue().getContext().writeAndFlush(Unpooled.wrappedBuffer(temp));

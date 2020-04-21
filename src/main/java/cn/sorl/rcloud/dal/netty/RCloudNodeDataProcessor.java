@@ -15,12 +15,14 @@ import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.CharsetUtil;
+import io.netty.util.ReferenceCountUtil;
 import lombok.Getter;
 import lombok.Setter;
 import org.bson.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.nio.ByteBuffer;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -66,6 +68,26 @@ public class RCloudNodeDataProcessor  extends ChannelInboundHandlerAdapter {
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         NodeMsg nodeMsg = (NodeMsg) msg;
         logger.debug("NodeMsg : " + nodeMsg.toString());
+
+        /****  发送到上位机  ****/
+        ByteBuf buf = null;
+        try {
+            byte[] rawData = nodeMsg.getByteRawData();
+//            buf = ctx.alloc().buffer(rawData.length);
+            buf = ctx.alloc().directBuffer(rawData.length);
+            buf.writeBytes(rawData);
+            RuiliPcTcpHandler.send2Pc(buf);
+        } catch (Exception e) {
+            logger.error("",e);
+        } finally {
+            // 释放buf
+//            logger.debug(String.format("Before : buf count = %d ", buf.refCnt()));
+//            ReferenceCountUtil.release(buf);
+//            logger.debug(String.format("After : buf count = %d ", buf.refCnt()));
+        }
+
+
+        /****  写入到数据库  ****/
         short io1 = (short) (nodeMsg.getIo() & 0x01);
         short io2 = (short) (nodeMsg.getIo() & 0x02);
         Document doc = new Document(RuiliDatadbSegment.MONGODB_KEY_NODE_ID,nodeMsg.getId())//该包的节点

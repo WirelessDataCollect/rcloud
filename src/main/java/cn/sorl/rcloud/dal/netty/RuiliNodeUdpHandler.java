@@ -46,7 +46,6 @@ public class RuiliNodeUdpHandler extends SimpleChannelInboundHandler<DatagramPac
             countTask.incPacksNum();
         }catch (Exception e){
             logger.error("", e);
-        }finally {
         }
 
     }
