@@ -81,9 +81,7 @@ public class RCloudNodeDataProcessor  extends ChannelInboundHandlerAdapter {
             logger.error("",e);
         } finally {
             // 释放buf
-//            logger.debug(String.format("Before : buf count = %d ", buf.refCnt()));
-//            ReferenceCountUtil.release(buf);
-//            logger.debug(String.format("After : buf count = %d ", buf.refCnt()));
+            ReferenceCountUtil.release(buf);
         }
 
 

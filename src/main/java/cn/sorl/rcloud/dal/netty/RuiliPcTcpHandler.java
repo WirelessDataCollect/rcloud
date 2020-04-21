@@ -89,9 +89,17 @@ public class RuiliPcTcpHandler extends ChannelInboundHandlerAdapter {
                 if((entry.getValue().getStatus()==RuiliPcChannelAttr.DATA_GET_STA) && ((entry.getValue().getTestName().equals(testName)) || (entry.getValue().getTestName().equals(RuiliPcCmdAttr.PC_GET_ALL_DATA_LABLE)))) {
                     //发送数据
                     if(entry.getValue().getContext().channel().isWritable()){
+                        temp.retain();
                         entry.getValue().getContext().writeAndFlush(Unpooled.wrappedBuffer(temp));
                     }
                 }
+                /**
+                 * just for test
+                 */
+//                if(entry.getValue().getContext().channel().isWritable()){
+//                    temp.retain();
+//                    entry.getValue().getContext().writeAndFlush(Unpooled.wrappedBuffer(temp));
+//                }
             }
         }
     }
