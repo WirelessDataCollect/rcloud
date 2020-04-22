@@ -10,6 +10,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import static java.lang.StrictMath.abs;
+
 /**
  * 设备数据协议<br/>
  * <pre>
@@ -89,7 +91,7 @@ public class NodeMsgDecoder extends ByteToMessageDecoder {
                     yymdBuff = buffer.readIntLE();
                 }
                 // 相差不超过1天
-                if (yymdBuff - yymd <= 1) {
+                if (abs(yymdBuff - yymd) <= 1) {
                     break;
                 }
                 // 未读到包头，略过一个字节
