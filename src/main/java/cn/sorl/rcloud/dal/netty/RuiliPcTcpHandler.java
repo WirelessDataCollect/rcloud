@@ -50,7 +50,7 @@ public class RuiliPcTcpHandler extends ChannelInboundHandlerAdapter {
     //用户信息数据库
     private SimpleMgd generalMgd;
     //限制连接
-    private int MAX_CHANNEL_NUM;
+    private long MAX_CHANNEL_NUM;
 
     private static final Logger logger = LoggerFactory.getLogger(RuiliPcTcpHandler.class);
 
@@ -69,7 +69,7 @@ public class RuiliPcTcpHandler extends ChannelInboundHandlerAdapter {
             this.adminMgd = admin_mgd;
             this.generalMgd = general_mgd;
             PropertiesUtil propertiesUtil = new PropertiesUtil(PropertyLabel.PROPERTIES_FILE_ADDR);
-            MAX_CHANNEL_NUM = Integer.parseInt(propertiesUtil.readValue(PropertyLabel.SERVER_CLIENT_CONNECT_NUM));
+            MAX_CHANNEL_NUM = Long.parseLong(propertiesUtil.readValue(PropertyLabel.SERVER_CLIENT_CONNECT_NUM));
         } catch (Exception e) {
             logger.error("",e);
         }

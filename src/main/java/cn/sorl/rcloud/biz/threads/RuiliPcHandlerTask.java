@@ -77,6 +77,9 @@ public class RuiliPcHandlerTask implements Runnable{
                                     .addLast(new RuiliPcTcpHandler(dataMgd, infoMgd, adminMgd, generalMgd));//如果需要继续添加与之链接的handler，则再次调用addLast即可
                         }//完成初始化后，删除RunPcServer出/入站处理器
                     })
+                    /**
+                     * 设置backlog，即ACCEPT队列长度
+                     */
                     .option(ChannelOption.SO_BACKLOG, 128)
                     .childOption(ChannelOption.SO_KEEPALIVE, true);
 
